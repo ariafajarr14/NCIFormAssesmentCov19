@@ -41,7 +41,10 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="#">Dashboard</a>
+                        <a class="nav-link" href="#">Form Assesment</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="#">History Assesment</a>
                     </li>
                     </li>
                     <li class="nav-item">

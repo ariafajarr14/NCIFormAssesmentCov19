@@ -36,3 +36,7 @@ Route::get('/dashboard/formassesment', function () {
 Route::get('/dashboard/formassesment', function () {
     return view('/dashboard/formassesment');
 });
+
+Route::get('/layout/master', function () {
+    return view('/layout/master');
+});
