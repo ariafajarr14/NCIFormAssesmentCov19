@@ -1,82 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!-- Menghubungkan dengan view template master -->
+@extends('layout.master')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- isi bagian judul halaman -->
+<!-- cara penulisan isi section yang pendek -->
+@section('judul_halaman', 'Home')
 
-    <title>NCI Form Assesment Cov-19</title>
-
-    <link rel="icon" href="image/logo.png" type="image/x-icon">
-    <!-- LOGO -->
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="/style/homepage.css" type="text/css">
-    <link rel="stylesheet" href="/style/formfill.css" type="text/css">
-    <link rel="stylesheet" href="/style/navbar.css" type="text/css">
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
-        <div class="container-fluid" >
-            <a class="navbar-brand" href="#">
-                <img class="logo horizontal-logo rounded-full" src="/image/logo.png" alt="NCI logo"
-                    style="width: 50px; margin-right:70px">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse font-semibold" id="navbarSupportedContent" >
-                <ul class="navbar-nav" >
-                    <li class="nav-item" >
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item" >
-                        <a class="nav-link" href="#">Form Assesment</a>
-                    </li>
-                    <li class="nav-item" >
-                        <a class="nav-link" href="#">History Assesment</a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Temperature Record</a>
-                    </li>
-                </ul>
-
-                <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Aria Fajar Ramdhany
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" href="#">logout</a>
-                        </div>
-                    </li>
-                </ul>
-                    
-
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <header class="bg-white shadow rounded">
-        <div>
-            <h2 class="font-semibold text-2xl leading-tight p-6">
-                Home
-            </h2>
-        </div>
-    </header>
-
+<!-- isi bagian konten -->
+<!-- cara penulisan isi section yang panjang -->
+@section('konten')
 
     <div class="modal fade" id="myModal" style="color: #6FA74C;">
         <div class="modal-dialog vertical-align-center">
@@ -172,10 +103,7 @@
                                     Form Assesment Covid-19
                                 </h4>
                                 <p class="mt-4">Tanggal : <span id="tanggal"></span></p>
-                                <a href="" type="button" class="btn btn-outline-success" style="width: 80%;">Isi
-                                    Form</a>
-                                <a href="" type="button" class="btn btn-outline-success mt-4"
-                                    style="width: 80%;">History
+                                <a href="/dashboard/formassesment" type="button" class="btn btn-outline-success mt-2" style="width: 80%;">Isi
                                     Form</a>
                                 <br><br>
                             </div>
@@ -184,26 +112,6 @@
                 </div>
             </div>
         </div>
+    </div> <br>
 
-    </div>
-
-</body>
-
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/js/popper.min.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
-<script type="text/javascript" src="/style/date.js"></script>
-<script type="text/javascript" src="/style/navbar.js"></script>
-<script>
-    $(window).on('load', function () {
-        var delayMs = 100; // delay in milliseconds
-
-        setTimeout(function () {
-            $('#myModal').modal('show');
-        }, delayMs);
-    });
-
-</script>
-
-</html>
+@endsection

@@ -37,6 +37,10 @@ Route::get('/dashboard/formassesment', function () {
     return view('/dashboard/formassesment');
 });
 
+Route::get('/dashboard/temperature', function () {
+    return view('/dashboard/temperature');
+});
+
 Route::get('/layout/master', function () {
     return view('/layout/master');
 });
