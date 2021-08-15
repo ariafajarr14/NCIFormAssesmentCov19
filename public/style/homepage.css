@@ -1,0 +1,27 @@
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins/Poppins-Regular.ttf);
+  }
+
+html, body {
+    font-family: Poppins;
+    height: 100%;
+    margin: 0;
+    background-color: #fff;
+    color: #6FA74C;
+  }
+
+nav{
+      background-color: #F1FFD6;
+  }
+
+  a{
+      color: #6FA74C;
+  }
+
+  @media(max-width:600px) {
+
+    #textthanks{
+        margin-left: 100px;
+    }
+}
