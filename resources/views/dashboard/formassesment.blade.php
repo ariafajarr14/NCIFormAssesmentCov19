@@ -86,7 +86,7 @@
                     <div class="container my-1">
                         <div class="question ml-sm-5 pl-sm-5 pt-2">
                             <form action="" method="POST">
-                            @csrf
+                            
                             <div class="py-2 h5"><b>1. Apakah pernah keluar rumah/ tempat umum (pasar, fasyankes,
                                     kerumunan orang, dan
                                     lain lain)?</b></div>
