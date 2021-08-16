@@ -21,8 +21,11 @@
     <link rel="stylesheet" href="/style/navbar.css" type="text/css">
     <link rel="stylesheet" href="/style/button.css" type="text/css">
     <link rel="stylesheet" href="/style/footer.css" type="text/css">
+    
+ 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    
 </head>
 
 <body>
@@ -40,22 +43,30 @@
             </button>
             <div class="collapse navbar-collapse font-semibold" id="navbarSupportedContent">
                 <ul class="navbar-nav">
+                    @if(auth()->user()->role == 'employee')
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/dashboard_admin">Dahboard</a>
+                        <a class="nav-link" href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/formassesment">Form Assesment</a>
+                        <a class="nav-link" href="{{route('form.create')}}">Form Assesment</a>
+                    </li>
+                    @endif
+
+                    @if(auth()->user()->role == 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/formhistory">History Assesment</a>
+                        <a class="nav-link" href="{{route('form.view')}}">History Assesment</a>
                     </li>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dashboard/temperature">Temperature Record</a>
+                        <a class="nav-link" href="{{route('admin.temperature')}}">Temperature Record</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.userlist')}}">User List</a>
+                    </li>
+                    @endif
                 </ul>
 
                 <ul class="navbar-nav ml-auto">
@@ -65,7 +76,7 @@
                             {{auth()->user()->name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" href="/logout">logout</a>
+                            <a class="dropdown-item" href="{{route('post.logout')}}">logout</a>
                         </div>
                     </li>
                 </ul>
@@ -123,6 +134,20 @@
             $('#myModal').modal('show');
         }, delayMs);
     });
+
+</script>
+<script>
+   
+    
+    $(document).ready(function ()
+
+    {
+
+    $('.table-paginate').dataTable();
+
+    }
+
+    );
 
 </script>
 

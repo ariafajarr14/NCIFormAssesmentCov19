@@ -44,7 +44,7 @@
                                     History Assesment Covid-19
                                 </h4>
                                 
-                                <a href="/dashboard/formassesment" type="button" class="btn btn-outline-success mt-2"
+                                <a href="/dashboard/formhistory" type="button" class="btn btn-outline-success mt-2"
                                     style="width: 80%;">Check</a>
                                 <br><br>
                             </div>
@@ -56,7 +56,7 @@
                                 <h4 class="mt-2">
                                     Temperature Record
                                 </h4>
-                                <a href="/dashboard/formassesment" type="button" class="btn btn-outline-success"
+                                <a href="/dashboard/temperature" type="button" class="btn btn-outline-success"
                                     style="width: 80%; margin-top:32px;">Check</a>
                                 <br><br>
                             </div>
@@ -68,7 +68,7 @@
                                 <h4 style="margin-top: 10px;">
                                     User List
                                 </h4>
-                                <a href="/dashboard/formassesment" type="button" class="btn btn-outline-success"
+                                <a href="/dashboard/userlist" type="button" class="btn btn-outline-success"
                                     style="width: 80%; margin-top:45px;">Check</a>
                                 <br><br>
                             </div>

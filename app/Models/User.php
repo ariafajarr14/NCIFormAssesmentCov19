@@ -21,7 +21,9 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
-        'remember_token'
+        'remember_token',
+        'divisi',
+        'jenis_kelamin'
     ];
 
     /**

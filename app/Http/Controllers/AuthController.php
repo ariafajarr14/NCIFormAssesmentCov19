@@ -26,8 +26,22 @@ class AuthController extends Controller
     {
         //
         //return view('login');
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
-            return redirect('/dashboard/home');
+        request()->validate(
+            [
+                'email' => 'required',
+                'password' => 'required',
+            ]);
+
+            $kredensil = $request->only('email','password');
+
+        if(Auth::attempt($kredensil)){
+            $user = Auth::user();
+            if ($user->role == 'admin'){
+                return redirect()->intended('/dashboard/dashboard_admin');
+            }elseif($user->role == 'employee'){
+                return redirect()->intended('/dashboard/home');
+            }
+            return redirect()->intended('/');
         }
         return redirect('/');
     }
@@ -51,6 +65,8 @@ class AuthController extends Controller
          'role' => 'employee',
          'name' => $request->name,
          'email' => $request->email,
+         'divisi' => $request->divisi,
+         'jenis_kelamin' => $request->jenis_kelamin,
          'password' => bcrypt($request->password),
          'remember_token' => Str::random(60)
         ]);

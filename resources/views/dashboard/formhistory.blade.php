@@ -12,7 +12,7 @@
 
 
 <div class="mt-4" style="height: auto;">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">{{$form_answers->links()}}<br>
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="bg-white border-b border-gray-200">
                 <div class="table-responsive">
@@ -31,21 +31,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php $no = 1; @endphp
-
+                        
+                            @foreach($form_answers as $key => $form)
                             <tr class="text-center">
-                                <th scope="row">{{ $no++ }}</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <th scope="row">{{ $form_answers->firstItem() + $key}}</th>
+                                <td>{{$form->created_at}}</td>
+                                <td>{{$form->clientname}}</td>
+                                <td>{{$form->quest_one}}</td>
+                                <td>{{$form->quest_two}}</td>
+                                <td>{{$form->quest_three}}</td>
+                                <td>{{$form->quest_four}}</td>
+                                <td>{{$form->quest_five}}</td>
+                                <td>{{$form->quest_six}}</td>
                             </tr>
-
+                            @endforeach
+                            
                         </tbody>
+                        
                     </table>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use \App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -17,12 +18,6 @@ class DashboardController extends Controller
         return view('dashboard.home');
     }
 
-    public function formhistory()
-    {
-        //
-        return view('dashboard.formhistory');
-    }
-
     public function formassesment()
     {
         //
@@ -35,6 +30,18 @@ class DashboardController extends Controller
         return view('dashboard.temperature');
     }
 
+    public function dashboard_admin()
+    {
+        //
+        return view('dashboard.dashboard_admin');
+    }
+    public function userlist()
+    {
+        //
+        $user = \App\Models\User::all();
+        return view('dashboard.userlist',['user' => $user]);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *

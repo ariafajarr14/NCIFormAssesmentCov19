@@ -29,7 +29,7 @@
                 <div class="form-group ">
                     <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="name" type="text"
                         name="name" :value="old('name')" placeholder="Masukkan Nama Lengkap" required autofocus>
-                        @if ($errors->has('name'))
+                    @if ($errors->has('name'))
                     <div class="invalid-feedback">
                         {{ $errors->first('name')}}
                     </div>
@@ -72,7 +72,7 @@
                     <input id="password" type="password" name="password"
                         class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" required
                         autocomplete="new-password" placeholder="Masukkan Password">
-                        @if ($errors->has('password'))
+                    @if ($errors->has('password'))
                     <div class="invalid-feedback">
                         {{ $errors->first('password')}}
                     </div>
@@ -84,7 +84,7 @@
                     <input id="password_confirmation" type="password" name="password_confirmation"
                         class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" required
                         placeholder="Masukkan Ulang Password">
-                        @if ($errors->has('password_confirmation'))
+                    @if ($errors->has('password_confirmation'))
                     <div class="invalid-feedback">
                         {{ $errors->first('password_confirmation')}}
                     </div>
