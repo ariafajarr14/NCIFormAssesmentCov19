@@ -32,6 +32,10 @@ Route::get('/dashboard/formhistory', 'App\Http\Controllers\DashboardController@f
 Route::get('/dashboard/formassesment', 'App\Http\Controllers\DashboardController@formassesment')->middleware('auth');
 Route::get('/dashboard/temperature', 'App\Http\Controllers\DashboardController@temperature')->middleware('auth');
 
+
+Route::get('/dashboard/dashboard_admin', function () {
+     return view('/dashboard/dashboard_admin');
+     });
 /**
  * 
  * Route::get('/dashboard/home', function () {
