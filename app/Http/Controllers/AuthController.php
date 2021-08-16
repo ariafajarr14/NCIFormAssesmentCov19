@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Str;
+
 
 class AuthController extends Controller
 {
@@ -23,10 +26,39 @@ class AuthController extends Controller
     {
         //
         //return view('login');
-        if(Auth::attempt($request->only('email','password'))){
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])){
             return redirect('/dashboard/home');
         }
         return redirect('/');
+    }
+
+    public function register()
+    {
+        //
+        return view('register');
+    }
+
+    public function postregister(Request $request)
+    {
+        //
+        $this->validate($request, [
+            'name' => 'required|min:5',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed' //field_confirmatin
+        ]);
+
+        $user = User::create([
+         'role' => 'employee',
+         'name' => $request->name,
+         'email' => $request->email,
+         'password' => bcrypt($request->password),
+         'remember_token' => Str::random(60)
+        ]);
+
+        //User Login
+        Auth::loginUsingId($user->id);
+
+        return redirect('/dashboard/home');
     }
 
     public function logout()

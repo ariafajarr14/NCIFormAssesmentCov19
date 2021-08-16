@@ -1,0 +1,43 @@
+@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins/Poppins-Light.ttf);
+  }
+
+body {
+    font-family: Poppins;
+    height: auto;
+    margin: 0;
+    background-color:#fff;
+  }
+  
+  .full-height {
+    height: 100%;
+    background: #F1FFD6;
+  }
+  h2{
+    font-family: Poppins;
+      color: #6FA74C;
+  }
+
+  h4{
+    font-family: Poppins;
+    color: #6FA74C;
+  }
+
+  h5{
+    font-family: Poppins;
+    color: #6FA74C;
+  }
+
+  a{
+    font-family: Poppins;
+    color: #6FA74C;
+  }
+
+  @media (min-width: 400px) {
+    .leftarea{
+        position:relative;
+        display: inline-block;
+        width: 25%;
+    }
+  }
