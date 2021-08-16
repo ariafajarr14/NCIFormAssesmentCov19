@@ -22,8 +22,8 @@
             <h2 class="mt-5 col-sm-10 ml-auto mr-auto">Self Assesment Resiko Covid 19 (NCI)</h2>
             <h5 class="mt-5">Tanggal : <span id="tanggal"></span></h5>
             <br>
-            <form method="" action="" class="text-center mt-4 col-sm-8 ml-auto mr-auto">
-                
+            <form method="POST" action="/postlogin" class="text-center mt-4 col-sm-8 ml-auto mr-auto">
+                @csrf
                 <div class="form-group ">
                     <input id="email" type="email" name="email" class="form-control" :value="old('email')"
                         placeholder="Masukkan Email" required autofocus>
@@ -33,12 +33,12 @@
                         autocomplete="current-password" placeholder="Masukkan Password">
                 </div>
                 <br>
-
                 <button type="submit" class="btn btn-success col-sm-12">Login</button>
                 <small id="emailHelp" class="form-text text-muted">Belum punya akun? <a
                         href="register">Sign-up</a></small>
-
-            </form><br><br>
+            </form>
+            <br>
+            <br>
         </div>
     </div>
 

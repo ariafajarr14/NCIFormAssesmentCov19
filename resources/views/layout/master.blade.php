@@ -59,10 +59,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Aria Fajar Ramdhany
+                            {{auth()->user()->name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" href="#">logout</a>
+                            <a class="dropdown-item" href="/logout">logout</a>
                         </div>
                     </li>
                 </ul>
