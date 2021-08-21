@@ -24,9 +24,9 @@ class UserSeeder extends Seeder
             'role' => 'admin',
             'name' => 'Admin',
             'email' => 'admin@nci.id',
-            'divisi' => 'Admin',
+            'divisi' => 'Administrator',
             'jenis_kelamin' => 'Unknown',
-            'password' => bcrypt(123456),
+            'password' => bcrypt(123123),
             'remember_token' => Str::random(60)
             ]);
 
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'email' => 'aria@nci.id',
             'divisi' => 'Divisi Marketing',
             'jenis_kelamin' => 'Laki-laki',
-            'password' => bcrypt(123456),
+            'password' => bcrypt(123123),
             'remember_token' => Str::random(60)
             ]);
     }
