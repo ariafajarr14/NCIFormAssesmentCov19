@@ -93,6 +93,5 @@ class TemperatureController extends Controller
         $temperature = Temperature::find($id);
         $temperature->delete($temperature);
         return redirect()->back()->with('sukses', 'Data berhasil dihapus!');
-
     }
 }
