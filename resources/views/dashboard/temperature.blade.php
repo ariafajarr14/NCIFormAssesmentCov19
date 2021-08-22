@@ -5,14 +5,16 @@
 <!-- cara penulisan isi section yang pendek -->
 @section('judul_halaman', 'Temperature Check')
 
+
 <!-- isi bagian konten -->
 <!-- cara penulisan isi section yang panjang -->
 @section('konten')
 
 
 
+
 <div class="mt-4" style="height: auto;">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">{{$temperature->links()}}
         <!-- Button trigger modal -->
 
 
@@ -28,20 +30,21 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                        <p class="mt-4 text-center">Tanggal : <strong><span id="tanggal"></span></strong></p>
+                        <form method="POST" action="{{route('temperature.create')}}">
+                            @csrf
+                            <p class="mt-4 text-center">Tanggal : <strong><span id="tanggal"></span></strong></p>
 
                             <div class="form-group">
                                 <label for="inputNama">Nama</label>
-                                <input type="text" class="form-control" id="inputNama">
+                                <input type="text" class="form-control" id="inputNama" name="nama" required>
                             </div>
                             <div class="form-group">
                                 <label for="inputSuhu">Suhu</label>
-                                <input type="text" class="form-control" id="inputSuhu">
+                                <input type="text" class="form-control" id="inputSuhu" name="suhu" required>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                                <button type="button" class="btn btn-success">Simpan</button>
+                                <button type="submit" class="btn btn-success">Simpan</button>
                             </div>
                         </form>
                     </div>
@@ -69,20 +72,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php $no = 1; @endphp
-
+                            @foreach($temperature as $key => $temp)
                             <tr class="text-center">
-                                <th scope="row">{{ $no++ }}</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <th scope="row">{{ $temperature->firstItem() + $key}}</th>
+                                <td>{{$temp->created_at}}</td>
+                                <td>{{$temp->nama}}</td>
+                                <td>{{$temp->suhu}} &#8451;</td>
                                 <td>
 
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <a href="/dashboard/temperature/{{$temp->id}}/delete" type="button" class="btn btn-danger">Delete</a>
 
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

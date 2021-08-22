@@ -62,18 +62,7 @@ class FormController extends Controller
         $request -> quest_six = request('quest_six');
         $request -> save(); 
         
-        //FormAnswer::create([
-        //    'clientid' => request($userID),
-        //    'clientname' => request($clientname),
-        //    'quest_one' => request('quest_one'),
-        //    'quest_two' => request('quest_two'),
-        //    'quest_three' => request('quest_three'),
-        //    'quest_four' => request('quest_four'),
-        //    'quest_five' => request('quest_five'),
-         //   'quest_six' => request('quest_six'),
-        //]);
-
-        return redirect('dashboard/formassesment');
+        return redirect('/dashboard/formthanks')->with('suksesform', 'Data berhasil diinput !');
     }
 
     /**

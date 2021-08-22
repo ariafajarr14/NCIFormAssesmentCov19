@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use \App\Models\User;
+
+use App\Models\Temperature;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use Illuminate\Http\Request;
-
-class DashboardController extends Controller
+class TemperatureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,46 +16,14 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        return view('dashboard.home');
+        //$temperature = Temperature::all();
+        //return view('dashboard.temperature',['temperature' => $temperature]);
+
+        return view('dashboard.temperature', [
+            'temperature' => DB::table('temperature')->paginate(10)
+        ]);
     }
 
-    public function formassesment()
-    {
-        //
-        return view('dashboard.formassesment');
-
-        //return view('dashboard.formassesment', [
-        //    'temperature' => DB::table('temperature')->paginate(10)
-        //]);
-    }
-
-    public function temperature()
-    {
-        //
-        return view('dashboard.temperature');
-    }
-
-    public function dashboard_admin()
-    {
-        //
-        return view('dashboard.dashboard_admin');
-    }
-
-    public function userlist()
-    {
-        //
-        $user = \App\Models\User::all();
-        return view('dashboard.userlist',['user' => $user]);
-    }
-
-    public function userthanks()
-    {
-        //
-        return view('dashboard.formthanks');
-    }
-
-
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -75,15 +43,17 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         //
+        Temperature::create($request->all());
+        return redirect()->back()->with('sukses', 'Data berhasil diinput !');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Temperature  $temperature
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Temperature $temperature)
     {
         //
     }
@@ -91,10 +61,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Temperature  $temperature
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Temperature $temperature)
     {
         //
     }
@@ -103,10 +73,10 @@ class DashboardController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Temperature  $temperature
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Temperature $temperature)
     {
         //
     }
@@ -114,11 +84,15 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Temperature  $temperature
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+        $temperature = Temperature::find($id);
+        $temperature->delete($temperature);
+        return redirect()->back()->with('sukses', 'Data berhasil dihapus!');
+
     }
 }

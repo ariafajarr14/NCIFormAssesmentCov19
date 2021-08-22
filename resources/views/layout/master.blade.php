@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="/style/navbar.css" type="text/css">
     <link rel="stylesheet" href="/style/button.css" type="text/css">
     <link rel="stylesheet" href="/style/footer.css" type="text/css">
-    
- 
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
 </head>
 
 <body>
@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" >
                 <img class="logo horizontal-logo rounded-full" src="/image/logo.png" alt="NCI logo"
                     style="width: 50px; margin-right:70px">
             </a>
@@ -48,7 +48,7 @@
                         <a class="nav-link" href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('form.create')}}">Form Assesment</a>
+                        <a class="nav-link" href="{{route('user.assesment')}}">Form Assesment</a>
                     </li>
                     @endif
 
@@ -61,7 +61,7 @@
                     </li>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('admin.temperature')}}">Temperature Record</a>
+                        <a class="nav-link" href="{{route('temperature.view')}}">Temperature Record</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.userlist')}}">User List</a>
@@ -95,6 +95,18 @@
         </div>
     </header>
 
+    @if(session('sukses'))
+    <div class="alert alert-success" role="alert">
+        {{session('sukses')}}
+    </div>
+    @endif
+
+    @if(session('suksesform'))
+    <div class="alert alert-success" role="alert">
+        {{session('suksesform')}}
+    </div>
+    @endif
+
 
 
 
@@ -114,7 +126,7 @@
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: #cde0c1;">
             © 2021 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">PT. Nuansa Cerah Informasi</a>
+            <a class="text-dark" href="https://nuansa.com/" target="_blank">PT. Nuansa Cerah Informasi</a>
         </div>
         <!-- Copyright -->
     </footer>
@@ -137,15 +149,13 @@
 
 </script>
 <script>
-   
-    
     $(document).ready(function ()
 
-    {
+        {
 
-    $('.table-paginate').dataTable();
+            $('.table-paginate').dataTable();
 
-    }
+        }
 
     );
 
