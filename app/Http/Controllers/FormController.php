@@ -50,6 +50,8 @@ class FormController extends Controller
         $userId = Auth::id();
         $clientname = DB::table('users')->where('id', $userId)->pluck('name');
         $clientname = trim($clientname, '[{"id":}]');
+
+        
         
         $request = new \App\Models\FormAnswer();
         $request -> clientid = $userId;
@@ -60,6 +62,7 @@ class FormController extends Controller
         $request -> quest_four = request('quest_four');
         $request -> quest_five = request('quest_five');
         $request -> quest_six = request('quest_six');
+        $request -> hasil = request('quest_one') + request('quest_two') + request('quest_three') + request('quest_four') + request('quest_five') + request('quest_six');
         $request -> save(); 
         
         return redirect('/dashboard/formthanks')->with('suksesform', 'Data berhasil diinput !');

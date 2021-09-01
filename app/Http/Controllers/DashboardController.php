@@ -41,12 +41,7 @@ class DashboardController extends Controller
         return view('dashboard.dashboard_admin');
     }
 
-    public function userlist()
-    {
-        //
-        $user = \App\Models\User::all();
-        return view('dashboard.userlist',['user' => $user]);
-    }
+
 
     public function userthanks()
     {

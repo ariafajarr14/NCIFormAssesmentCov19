@@ -26,10 +26,13 @@ Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('post.
 Route::get('/register', 'App\Http\Controllers\AuthController@register')->name('register')->middleware('guest');
 Route::post('/register', 'App\Http\Controllers\AuthController@postregister')->name('post.register')->middleware('guest');
 
+//User
+Route::get('/dashboard/userlist/{id}/delete', 'App\Http\Controllers\AuthController@destroy')->name('userlist.delete')->middleware('auth');
+Route::get('/dashboard/userlist', 'App\Http\Controllers\AuthController@userlist')->name('admin.userlist')->middleware('auth');
+
 //Dashboard
 Route::get('/dashboard/home', 'App\Http\Controllers\DashboardController@index')->name('user.home')->middleware('auth');
 Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard')->middleware('auth');
-Route::get('/dashboard/userlist', 'App\Http\Controllers\DashboardController@userlist')->name('admin.userlist')->middleware('auth');
 
 
 //Form

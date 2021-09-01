@@ -17,12 +17,13 @@ class CreateFormAnswersTable extends Migration
             $table->id();
             $table->string('clientid');
             $table->string('clientname');
-            $table->string('quest_one');
-            $table->string('quest_two');
-            $table->string('quest_three');
-            $table->string('quest_four');
-            $table->string('quest_five');
-            $table->string('quest_six');
+            $table->integer('quest_one');
+            $table->integer('quest_two');
+            $table->integer('quest_three');
+            $table->integer('quest_four');
+            $table->integer('quest_five');
+            $table->integer('quest_six');
+            $table->integer('hasil');
             $table->timestamps();
         });
     }

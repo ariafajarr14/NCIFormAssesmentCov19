@@ -57,13 +57,6 @@
                         <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('form.view')}}">History Assesment</a>
-                    </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('temperature.view')}}">Temperature Record</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.userlist')}}">User List</a>
                     </li>
                     @endif
@@ -104,6 +97,12 @@
     @if(session('suksesform'))
     <div class="alert alert-success" role="alert">
         {{session('suksesform')}}
+    </div>
+    @endif
+
+    @if(session('hapususer'))
+    <div class="alert alert-success" role="alert">
+        {{session('hapususer')}}
     </div>
     @endif
 

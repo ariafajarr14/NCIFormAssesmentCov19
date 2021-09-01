@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 
 class AuthController extends Controller
@@ -15,6 +16,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
 
     public function login()
     {
@@ -84,9 +86,21 @@ class AuthController extends Controller
         return redirect('/');
     }
 
-    public function index()
+    public function destroy($id)
     {
         //
+
+        $user = User::find($id);
+        $user->delete($user);
+        return redirect()->back()->with('hapususer', 'User berhasil dihapus!');
+    }
+
+    public function userlist()
+    {
+        //
+        return view('dashboard.userlist', [
+            'users' => DB::table('users')->paginate(10)
+        ]);
     }
 
     /**
@@ -150,8 +164,5 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

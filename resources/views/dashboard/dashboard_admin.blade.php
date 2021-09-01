@@ -41,9 +41,9 @@
                                 alt="Card image cap" style="width: 135px;">
                             <div class="card-body">
                                 <h4>
-                                    History Assesment Covid-19
+                                    Report History Assesment Covid-19
                                 </h4>
-                                
+
                                 <a href="/dashboard/formhistory" type="button" class="btn btn-outline-success mt-2"
                                     style="width: 80%;">Check</a>
                                 <br><br>
@@ -54,7 +54,7 @@
                                 alt="Card image cap" style="width: 130px;">
                             <div class="card-body">
                                 <h4 class="mt-2">
-                                    Temperature Record
+                                    Report Temperature Record
                                 </h4>
                                 <a href="/dashboard/temperature" type="button" class="btn btn-outline-success"
                                     style="width: 80%; margin-top:32px;">Check</a>
@@ -66,19 +66,19 @@
                                 alt="Card image cap" style="width: 180px;">
                             <div class="card-body">
                                 <h4 style="margin-top: 10px;">
-                                    User List
+                                    Report User List
                                 </h4>
                                 <a href="/dashboard/userlist" type="button" class="btn btn-outline-success"
                                     style="width: 80%; margin-top:45px;">Check</a>
                                 <br><br>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <br>

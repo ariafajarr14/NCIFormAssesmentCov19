@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Temperature;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TemperatureController extends Controller
@@ -43,8 +44,18 @@ class TemperatureController extends Controller
     public function store(Request $request)
     {
         //
-        Temperature::create($request->all());
-        return redirect()->back()->with('sukses', 'Data berhasil diinput !');
+
+        $userId = Auth::id();
+        $clientname = DB::table('users')->where('id', $userId)->pluck('name');
+        $clientname = trim($clientname, '[{"id":}]');
+
+        $request = new \App\Models\Temperature();
+        $request -> clientid = $userId;
+        $request -> clientname = $clientname;
+        $request -> suhu = request('suhu');
+        $request -> save(); 
+        
+        return redirect('/dashboard/formassesment');
     }
 
     /**

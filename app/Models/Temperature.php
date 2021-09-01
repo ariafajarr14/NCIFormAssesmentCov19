@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Temperature extends Model
 {
     protected $table = 'temperature';
-    protected $fillable = ['nama', 'suhu'];
+    protected $fillable = ['clientid', 'suhu'];
 }
