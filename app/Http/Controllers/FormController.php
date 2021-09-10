@@ -27,6 +27,21 @@ class FormController extends Controller
         ]);
     }
 
+    public function index2()
+    {
+        return view('dashboard.formthanks');
+    }
+
+    public function details()
+    {
+        //
+        $userId = Auth::id();
+        $form_answers = \App\Models\FormAnswer::all()->where('clientid', $userId);
+        return view('dashboard.details')->with('formanswer', $form_answers);
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -63,6 +78,18 @@ class FormController extends Controller
         $request -> quest_five = request('quest_five');
         $request -> quest_six = request('quest_six');
         $request -> hasil = request('quest_one') + request('quest_two') + request('quest_three') + request('quest_four') + request('quest_five') + request('quest_six');
+        
+
+        if ($request -> hasil > 5){
+            $keterangan  = 'Resiko Besar';
+        } elseif ($request -> hasil >=1 && $request -> hasil <=4){
+            $keterangan = 'Resiko Sedang';
+        } else {
+            $keterangan = 'Resiko Kecil';
+        }
+
+        $request -> keterangan = request('keterangan', $keterangan);
+
         $request -> save(); 
         
         return redirect('/dashboard/formthanks')->with('suksesform', 'Data berhasil diinput !');

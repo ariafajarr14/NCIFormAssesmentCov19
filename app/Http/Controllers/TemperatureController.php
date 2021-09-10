@@ -25,6 +25,22 @@ class TemperatureController extends Controller
         ]);
     }
 
+    public function details()
+    {
+        //
+        $userId = Auth::id();
+        $details = \App\Models\FormAnswer::All()->where('clientid', $userId);
+        //return $details;
+        //return view('dashboard.details',compact('details'));
+        //return view('dashboard.details', ['details' => \App\Models\FormAnswer::findOrFail($userId)]);
+        //return view("dashboard.details",compact("details", "userId"));
+        //return view('dashboard.details')->with('details', $details);
+        return view('dashboard.details', [
+            'details' => DB::table('form_answers')->where('clientid', $userId)->paginate(10)
+        ]);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -53,9 +69,17 @@ class TemperatureController extends Controller
         $request -> clientid = $userId;
         $request -> clientname = $clientname;
         $request -> suhu = request('suhu');
-        $request -> save(); 
         
-        return redirect('/dashboard/formassesment');
+
+        if ($request->suhu >= 37.3){
+            return redirect()->intended('/dashboard/home')->with('suhutinggi', 'Maaf Anda tidak bisa masuk kantor, karena suhu >= 37.3°C, segera lakukan investigasi dan pemeriksaan petugas kesehatan !');
+        }elseif($request->suhu < 37.3){
+            $request -> save(); 
+            return redirect()->intended('/dashboard/formassesment')->with('suhurendah', 'Anda bisa masuk kantor, karena suhu < 37.3°C, lanjutkan dengan mengisi form assesment di bawah ini !');
+            
+        }
+
+        
     }
 
     /**

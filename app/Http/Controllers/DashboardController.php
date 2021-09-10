@@ -41,9 +41,7 @@ class DashboardController extends Controller
         return view('dashboard.dashboard_admin');
     }
 
-
-
-    public function userthanks()
+    public function dashboard_formthanks()
     {
         //
         return view('dashboard.formthanks');

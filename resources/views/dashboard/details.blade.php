@@ -3,7 +3,7 @@
 
 <!-- isi bagian judul halaman -->
 <!-- cara penulisan isi section yang pendek -->
-@section('judul_halaman', 'Report History Assesment')
+@section('judul_halaman', 'Details Assesment')
 
 <!-- isi bagian konten -->
 <!-- cara penulisan isi section yang panjang -->
@@ -11,17 +11,16 @@
 
 
 
-<div class="mt-4" style="height: auto;">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">{{$form_answers->links()}}<br>
+<div class="mt-4">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">{{$details->links()}}<br>
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="bg-white border-b border-gray-200">
-                <div class="table-responsive">
+            <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr class="text-center" style="color: #6FA74C ;">
                                 <th scope="col" style="width:5%;">No</th>
                                 <th scope="col" style="width:12%;">Tanggal</th>
-                                <th scope="col" style="width:30%;">Nama</th>
                                 <th scope="col" style="width:10%;">
 
                                     <!-- Button trigger modal -->
@@ -220,19 +219,18 @@
                         </thead>
                         <tbody>
 
-                            @foreach($form_answers as $key => $form)
+                            @foreach($details as $key => $det)
                             <tr class="text-center">
-                                <th scope="row">{{ $form_answers->firstItem() + $key}}</th>
-                                <td>{{$form->created_at}}</td>
-                                <td>{{$form->clientname}}</td>
-                                <td>{{$form->quest_one}}</td>
-                                <td>{{$form->quest_two}}</td>
-                                <td>{{$form->quest_three}}</td>
-                                <td>{{$form->quest_four}}</td>
-                                <td>{{$form->quest_five}}</td>
-                                <td>{{$form->quest_six}}</td>
-                                <td class="table-success" style="color:#6FA74C;"><strong>{{$form->hasil}}</strong></td>
-                                <td class="text-light" style="background-color:#6FA74C;"><strong>{{$form->keterangan}}</strong></td>
+                                <th scope="row">{{ $details->firstItem() + $key}}</th>
+                                <td>{{$det->created_at}}</td>
+                                <td>{{$det->quest_one}}</td>
+                                <td>{{$det->quest_two}}</td>
+                                <td>{{$det->quest_three}}</td>
+                                <td>{{$det->quest_four}}</td>
+                                <td>{{$det->quest_five}}</td>
+                                <td>{{$det->quest_six}}</td>
+                                <td class="table-success" style="color:#6FA74C;"><strong>{{$det->hasil}}</strong></td>
+                                <td class="text-light" style="background-color:#6FA74C;"><strong>{{$det->keterangan}}</strong></td>
                             </tr>
                             @endforeach
 
@@ -243,6 +241,6 @@
             </div>
         </div>
     </div>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br>
+</div> <br><br><br><br><br><br><br><br><br>
+
 @endsection

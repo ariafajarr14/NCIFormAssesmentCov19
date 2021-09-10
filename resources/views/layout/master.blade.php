@@ -48,7 +48,7 @@
                         <a class="nav-link" href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('user.assesment')}}">Form Assesment</a>
+                        <a class="nav-link" href="{{route('user.viewdetailsassesment')}}">Detail Assesment</a>
                     </li>
                     @endif
 
@@ -87,6 +87,19 @@
             </h2>
         </div>
     </header>
+
+
+    @if(session('suhutinggi'))
+    <div class="alert alert-danger" role="alert">
+        {{session('suhutinggi')}}
+    </div>
+    @endif
+
+    @if(session('suhurendah'))
+    <div class="alert alert-success" role="alert">
+        {{session('suhurendah')}}
+    </div>
+    @endif
 
     @if(session('sukses'))
     <div class="alert alert-success" role="alert">

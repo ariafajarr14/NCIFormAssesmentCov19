@@ -24,6 +24,7 @@ class CreateFormAnswersTable extends Migration
             $table->integer('quest_five');
             $table->integer('quest_six');
             $table->integer('hasil');
+            $table->string('keterangan');
             $table->timestamps();
         });
     }

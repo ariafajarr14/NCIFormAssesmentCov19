@@ -9,6 +9,7 @@
 <!-- cara penulisan isi section yang panjang -->
 @section('konten')
 
+<!--
 <div class="modal fade" id="myModal" style="color: #6FA74C;">
     <div class="modal-dialog vertical-align-center">
         <div class="modal-content">
@@ -24,6 +25,7 @@
         </div>
     </div>
 </div>
+-->
 
 <div class="mt-4">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
