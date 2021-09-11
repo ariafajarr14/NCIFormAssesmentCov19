@@ -26,29 +26,36 @@ Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('post.
 Route::get('/register', 'App\Http\Controllers\AuthController@register')->name('register')->middleware('guest');
 Route::post('/register', 'App\Http\Controllers\AuthController@postregister')->name('post.register')->middleware('guest');
 
-//User
-Route::get('/dashboard/userlist/{id}/delete', 'App\Http\Controllers\AuthController@destroy')->name('userlist.delete')->middleware('auth');
-Route::get('/dashboard/userlist', 'App\Http\Controllers\AuthController@userlist')->name('admin.userlist')->middleware('auth');
+Route::group(['middleware' => ['auth','checkRole:admin']], function(){
+    //User
+    Route::get('/dashboard/userlist/{id}/delete', 'App\Http\Controllers\AuthController@destroy')->name('userlist.delete');
+    Route::get('/dashboard/userlist', 'App\Http\Controllers\AuthController@userlist')->name('admin.userlist');
+    //Dashboard
+    Route::get('/dashboard/home', 'App\Http\Controllers\DashboardController@index')->name('user.home');
+    Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');
+    //Form
+    Route::get('/dashboard/formhistory', 'App\Http\Controllers\FormController@index')->name('form.view');
+    //Temperature
+    Route::get('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@index')->name('temperature.view');
+    Route::get('/dashboard/temperature/{id}/delete', 'App\Http\Controllers\TemperatureController@destroy')->name('temperature.delete');
+});
 
-//Dashboard
-Route::get('/dashboard/home', 'App\Http\Controllers\DashboardController@index')->name('user.home')->middleware('auth');
-Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard')->middleware('auth');
+Route::group(['middleware' => ['auth','checkRole:employee']], function(){
+    //Dashboard
+    Route::get('/dashboard/home', 'App\Http\Controllers\DashboardController@index')->name('user.home');
+    //Form
+    Route::get('/dashboard/formassesment', 'App\Http\Controllers\DashboardController@formassesment')->name('user.assesment');
+    Route::post('/dashboard/formassesment', 'App\Http\Controllers\FormController@store')->name('form.create');
+    Route::get('/dashboard/details', 'App\Http\Controllers\TemperatureController@details')->name('user.viewdetailsassesment');
+    Route::get('/dashboard/formthanks', 'App\Http\Controllers\DashboardController@dashboard_formthanks')->name('dashboard_formthanks');
+    //Temperature
+    Route::post('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@store')->name('temperature.create');
 
-//Form
-Route::get('/dashboard/formassesment', 'App\Http\Controllers\DashboardController@formassesment')->name('user.assesment')->middleware('auth');
-Route::post('/dashboard/formassesment', 'App\Http\Controllers\FormController@store')->name('form.create')->middleware('auth');
-Route::get('/dashboard/formhistory', 'App\Http\Controllers\FormController@index')->name('form.view')->middleware('auth');
-Route::get('/dashboard/details', 'App\Http\Controllers\TemperatureController@details')->name('user.viewdetailsassesment')->middleware('auth');
-Route::get('/dashboard/formthanks', 'App\Http\Controllers\DashboardController@dashboard_formthanks')->name('dashboard_formthanks')->middleware('auth');
+});
 
-//Temperature
-Route::get('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@index')->name('temperature.view')->middleware('auth');
-Route::post('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@store')->name('temperature.create')->middleware('auth');
-Route::get('/dashboard/temperature/{id}/delete', 'App\Http\Controllers\TemperatureController@destroy')->name('temperature.delete')->middleware('auth');
 /**
  * 
  * Route::get('/dashboard/home', function () {
  * return view('/dashboard/home');
  * });
 */
-

@@ -44,8 +44,8 @@
                                     Report History Assesment Covid-19
                                 </h4>
 
-                                <a href="/dashboard/formhistory" type="button" class="btn btn-outline-success mt-2"
-                                    style="width: 80%;">Check</a>
+                                <a href="/dashboard/formhistory" type="button" class="btn btn-outline-success mt-4"
+                                    style="width: 80%; ">Check</a>
                                 <br><br>
                             </div>
                         </div>
@@ -57,19 +57,7 @@
                                     Report Temperature Record
                                 </h4>
                                 <a href="/dashboard/temperature" type="button" class="btn btn-outline-success"
-                                    style="width: 80%; margin-top:32px;">Check</a>
-                                <br><br>
-                            </div>
-                        </div>
-                        <div class="card ">
-                            <img class="card-img-top img-fluid ml-auto mr-auto" src="/image/userlist.png"
-                                alt="Card image cap" style="width: 180px;">
-                            <div class="card-body">
-                                <h4 style="margin-top: 10px;">
-                                    Report User List
-                                </h4>
-                                <a href="/dashboard/userlist" type="button" class="btn btn-outline-success"
-                                    style="width: 80%; margin-top:45px;">Check</a>
+                                    style="width: 80%; margin-top:20px;">Check</a>
                                 <br><br>
                             </div>
                         </div>
