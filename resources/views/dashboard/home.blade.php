@@ -131,7 +131,7 @@
                                                         required>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-success">Next</button>
+                                                    <button type="submit" class="btn btn-success" onclick="return confirm('Apakah Anda yakin mengisi suhu tersebut dengan sesuai ?')">Next</button>
                                                 </div>
                                             </form>
                                         </div>

@@ -48,7 +48,10 @@
                         <a class="nav-link" href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('user.viewdetailsassesment')}}">Detail Assesment</a>
+                        <a class="nav-link" href="{{route('user.viewdetailsassesment')}}">History Assesment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('user.viewdetailsuhu')}}">History Suhu</a>
                     </li>
                     @endif
 

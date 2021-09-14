@@ -214,8 +214,9 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th class="table-success " scope="col" style="width:5%;">Point</th>
-                                <th class="text-light" scope="col" style="width:5%; background-color:#6FA74C">Keterangan</th>
+                                <th scope="col" style="width:5%;">Point</th>
+                                <th scope="col" style="width:5%;">Keterangan</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -231,8 +232,12 @@
                                 <td>{{$form->quest_four}}</td>
                                 <td>{{$form->quest_five}}</td>
                                 <td>{{$form->quest_six}}</td>
-                                <td class="table-success" style="color:#6FA74C;"><strong>{{$form->hasil}}</strong></td>
-                                <td class="text-light" style="background-color:#6FA74C;"><strong>{{$form->keterangan}}</strong></td>
+                                <td><strong>{{$form->hasil}}</strong></td>
+                                <td><strong>{{$form->keterangan}}</strong></td>
+                                <td>
+                                    <a href="/dashboard/formhistory/{{$form->id}}/delete" type="button"
+                                        class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
+                                </td>
                             </tr>
                             @endforeach
 

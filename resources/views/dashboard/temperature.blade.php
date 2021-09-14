@@ -39,7 +39,7 @@
                                 <td>{{$temp->suhu}} &#8451;</td>
                                 <td>
                                     <a href="/dashboard/temperature/{{$temp->id}}/delete" type="button"
-                                        class="btn btn-danger">Delete</a>
+                                        class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

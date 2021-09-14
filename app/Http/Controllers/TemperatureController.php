@@ -38,7 +38,15 @@ class TemperatureController extends Controller
         return view('dashboard.details', [
             'details' => DB::table('form_answers')->where('clientid', $userId)->paginate(10)
         ]);
+    }
 
+    public function detailssuhu()
+    {
+        //
+        $userId = Auth::id();
+        return view('dashboard.detailssuhu', [
+            'details' => DB::table('temperature')->where('clientid', $userId)->paginate(10)
+        ]);
     }
 
     /**

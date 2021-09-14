@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="wrap mt-5">
-                    <button type="submit" class="button">Submit</button>
+                    <button type="submit" class="button" onclick="return confirm('Anda Yakin Mengisi Pernyataan Ini Dengan Sebenar-benarnya ?')">Submit</button>
                 </div>
 
             </div>

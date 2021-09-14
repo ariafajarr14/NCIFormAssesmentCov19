@@ -35,6 +35,8 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');
     //Form
     Route::get('/dashboard/formhistory', 'App\Http\Controllers\FormController@index')->name('form.view');
+    Route::get('/dashboard/formhistory/{id}/delete', 'App\Http\Controllers\FormController@destroy')->name('form.delete');
+
     //Temperature
     Route::get('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@index')->name('temperature.view');
     Route::get('/dashboard/temperature/{id}/delete', 'App\Http\Controllers\TemperatureController@destroy')->name('temperature.delete');
@@ -50,6 +52,7 @@ Route::group(['middleware' => ['auth','checkRole:employee']], function(){
     Route::get('/dashboard/formthanks', 'App\Http\Controllers\DashboardController@dashboard_formthanks')->name('dashboard_formthanks');
     //Temperature
     Route::post('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@store')->name('temperature.create');
+    Route::get('/dashboard/detailssuhu', 'App\Http\Controllers\TemperatureController@detailssuhu')->name('user.viewdetailsuhu');
 
 });
 

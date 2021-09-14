@@ -138,5 +138,8 @@ class FormController extends Controller
     public function destroy($id)
     {
         //
+        $form_answers = FormAnswer::find($id);
+        $form_answers->delete($form_answers);
+        return redirect()->back()->with('sukses', 'Data berhasil dihapus!');
     }
 }

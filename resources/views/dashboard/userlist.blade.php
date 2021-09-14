@@ -35,7 +35,7 @@
                                 <td>{{$user->jenis_kelamin}}</td>
                                 <td>
                                     <a href="/dashboard/userlist/{{$user->id}}/delete" type="button"
-                                        class="btn btn-danger">Delete</a>
+                                        class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
