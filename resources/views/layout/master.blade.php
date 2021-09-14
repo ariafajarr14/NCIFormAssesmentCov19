@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" >
+            <a class="navbar-brand">
                 <img class="logo horizontal-logo rounded-full" src="/image/logo.png" alt="NCI logo"
                     style="width: 50px; margin-right:70px">
             </a>
@@ -72,7 +72,8 @@
                             {{auth()->user()->name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" href="{{route('post.logout')}}">logout</a>
+                            <a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
+                            <a class="dropdown-item" href="{{route('post.logout')}}">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -95,6 +96,12 @@
     @if(session('suhutinggi'))
     <div class="alert alert-danger" role="alert">
         {{session('suhutinggi')}}
+    </div>
+    @endif
+
+    @if(session('updateprofile'))
+    <div class="alert alert-success" role="alert">
+        {{session('updateprofile')}}
     </div>
     @endif
 

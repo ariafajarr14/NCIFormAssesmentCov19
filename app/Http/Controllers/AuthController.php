@@ -79,6 +79,28 @@ class AuthController extends Controller
         return redirect('/dashboard/home');
     }
 
+    public function profileindex()
+    {
+        //
+        $userId = Auth::id();
+        $user = \App\Models\User::all()->where('id', $userId);
+        return view('dashboard.profile', ['users' => $user]);
+    }
+
+    public function updateprofile(Request $request)
+    {
+        $userId = Auth::id();
+        $request = User::all()->where('id', $userId)->first();
+        $request -> name = request('name');
+        $request -> divisi = request('divisi');
+        $request -> jenis_kelamin = request('jenis_kelamin');
+        $request -> save(); 
+
+        $user = User::all()->where('id', $userId);
+        return redirect()->back()->with('updateprofile', 'User Profile berhasil diubah!');
+    
+    }
+
     public function logout()
     {
         //

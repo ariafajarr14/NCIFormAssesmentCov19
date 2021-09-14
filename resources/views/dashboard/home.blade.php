@@ -36,7 +36,7 @@
                         <img class="card-img-top ml-auto mr-auto" src="/image/formicon.png" alt="Card image cap"
                             style="width: 140px;margin-top:-50px;">
                         <!-- Button trigger modal -->
-                        <a type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal"
+                        <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
                             style="position:absolute; width: 120px; font-size: 12px; margin-left: 15px; margin-top: 10px;">
                             Baca Instrument
                         </a>

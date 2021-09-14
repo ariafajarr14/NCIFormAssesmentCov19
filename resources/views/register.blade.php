@@ -46,7 +46,7 @@
                     </select>
                 </div>
 
-                <!-- Divisi -->
+                <!-- Jenis Kelamin -->
                 <div class="form-group">
                     <select id="inputState" class="form-control" name="jenis_kelamin">
                         <option selected>Pilih Jenis Kelamin</option>

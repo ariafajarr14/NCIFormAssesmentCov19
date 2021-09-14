@@ -26,6 +26,9 @@ Route::get('/logout', 'App\Http\Controllers\AuthController@logout')->name('post.
 Route::get('/register', 'App\Http\Controllers\AuthController@register')->name('register')->middleware('guest');
 Route::post('/register', 'App\Http\Controllers\AuthController@postregister')->name('post.register')->middleware('guest');
 
+Route::get('/dashboard/profile', 'App\Http\Controllers\AuthController@profileindex')->name('user.profile');
+Route::post('/dashboard/updateprofile', 'App\Http\Controllers\AuthController@updateprofile');
+
 Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     //User
     Route::get('/dashboard/userlist/{id}/delete', 'App\Http\Controllers\AuthController@destroy')->name('userlist.delete');
