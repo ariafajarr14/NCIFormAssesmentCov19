@@ -21,23 +21,23 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 1,
+            'nik_id' => 123123123123,
             'role' => 'admin',
             'name' => 'Admin',
-            'email' => 'admin@nci.id',
             'divisi' => 'Administrator',
             'jenis_kelamin' => 'Unknown',
-            'password' => bcrypt(123123),
+            'password' => bcrypt(123123123123),
             'remember_token' => Str::random(60)
             ]);
 
         DB::table('users')->insert([
             'id' => 2,
+            'nik_id' => 3273161412990003,
             'role' => 'employee',
             'name' => 'Aria Fajar Ramdhany',
-            'email' => 'aria@nci.id',
             'divisi' => 'Divisi Marketing',
             'jenis_kelamin' => 'Laki-laki',
-            'password' => bcrypt(123123),
+            'password' => bcrypt(3273161412990003),
             'remember_token' => Str::random(60)
             ]);
     }

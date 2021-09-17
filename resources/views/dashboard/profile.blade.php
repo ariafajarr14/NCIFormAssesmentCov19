@@ -30,12 +30,12 @@
                                         value="{{$user->id}}" readonly>
                                 </div>
                             </div>
-                            <!-- Email -->
+                            <!-- NIK -->
                             <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-4 col-form-label">Email</label>
+                                <label for="staticnik_id" class="col-sm-4 col-form-label">NIK</label>
                                 <div class="col-sm-8">
-                                    <input id="email" id="staticEmail" name="email" class="form-control"
-                                        value="{{$user->email}}" readonly>
+                                    <input id="nik_id" id="staticnik_id" name="nik_id" class="form-control-plaintext"
+                                        value="{{$user->nik_id}}" readonly>
                                 </div>
                             </div>
                             <!-- Name -->

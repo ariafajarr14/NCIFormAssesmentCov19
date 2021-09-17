@@ -30,7 +30,7 @@
                             <tr class="text-center">
                                 <th scope="row">{{ $details->firstItem() + $key}}</th>
                                 <td>{{$det->created_at}}</td>
-                                <td class="text-light" style="background-color:#6FA74C;"><strong>{{$det->suhu}}</strong></td>
+                                <td class="text-light" style="background-color:#6FA74C;"><strong>{{$det->suhu}}&#8451;</strong></td>
                             </tr>
                             @endforeach
 

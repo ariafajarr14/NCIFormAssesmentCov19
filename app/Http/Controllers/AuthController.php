@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 
 class AuthController extends Controller
@@ -28,24 +29,65 @@ class AuthController extends Controller
     {
         //
         //return view('login');
-        request()->validate(
-            [
-                'email' => 'required',
-                'password' => 'required',
-            ]);
+        
+        //request()->validate(
+        //    [
+        //        'nik_id' => 'required|min:10',
+        //        'password' => 'required',
+        //    ]);
 
-            $kredensil = $request->only('email','password');
+        $rules = [
+            'nik_id'                 => 'required|min:10',
+            'password'              => 'required'
+        ];
+ 
+        $messages = [
+            'nik_id.required'        => 'NIK wajib diisi',
+            'nik_id.min'           => 'NIK Anda tidak valid',
+            'password.required'     => 'Password wajib diisi',
+        ];
 
-        if(Auth::attempt($kredensil)){
+        $validator = Validator::make($request->all(), $rules, $messages);
+ 
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator)->withInput($request->all);
+        }
+ 
+        $data = [
+            'nik_id'     => $request->input('nik_id'),
+            'password'  => $request->input('password'),
+        ];
+ 
+        Auth::attempt($data);
+ 
+        if (Auth::check()) { // true sekalian session field di users nanti bisa dipanggil via Auth
+            //Login Success
             $user = Auth::user();
             if ($user->role == 'admin'){
                 return redirect()->intended('/dashboard/dashboard_admin');
             }elseif($user->role == 'employee'){
-                return redirect()->intended('/dashboard/home');
+                return redirect()->intended('/dashboard/home')->with('welcomeback', 'Selamat datang kembali');
             }
-            return redirect()->intended('/');
+ 
+        } else { // false
+ 
+            //Login Fail
+            Session::flash('error', 'NIK atau password salah');
+            return redirect()->route('login');
         }
-        return redirect('/');
+
+       // $kredensil = $request->only('nik_id','password');
+
+        //if(Auth::attempt($kredensil)){
+         //   $user = Auth::user();
+         //   if ($user->role == 'admin'){
+         //       return redirect()->intended('/dashboard/dashboard_admin');
+         //   }elseif($user->role == 'employee'){
+         //       return redirect()->intended('/dashboard/home');
+         //   }
+         //   return redirect()->intended('/');
+       // }
+       // return redirect('/');
     }
 
     public function register()
@@ -59,24 +101,24 @@ class AuthController extends Controller
         //
         $this->validate($request, [
             'name' => 'required|min:5',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed' //field_confirmatin
+            'nik_id' => 'required|min:10|unique:users',
+            //'password' => 'required|min:6|confirmed' //field_confirmatin
         ]);
 
         $user = User::create([
+         'nik_id' => $request->nik_id,
          'role' => 'employee',
          'name' => $request->name,
-         'email' => $request->email,
          'divisi' => $request->divisi,
          'jenis_kelamin' => $request->jenis_kelamin,
-         'password' => bcrypt($request->password),
+         'password' => bcrypt($request->nik_id),
          'remember_token' => Str::random(60)
         ]);
 
         //User Login
         Auth::loginUsingId($user->id);
 
-        return redirect('/dashboard/home');
+        return redirect('/dashboard/home')->with('userdibuat', 'Selamat Anda Sudah Terdaftar');
     }
 
     public function profileindex()

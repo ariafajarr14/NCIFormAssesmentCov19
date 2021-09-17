@@ -12,7 +12,26 @@
 
 
 <div class="mt-4" style="height: auto;">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">{{$form_answers->links()}}<br>
+
+
+
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <form action="{{route('form.periode')}}" method="get">
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <input type="text" name="tanggal_awal" class="form-control datepicker" placeholder="Tanggal Awal"
+                         value="{{date('Y-m-d')}}" autocomplete="off">
+                </div>
+                <div class="form-group col-md-2">
+                    <input type="text" name="tanggal_akhir" class="form-control datepicker" placeholder="Tanggal Akhir"
+                         value="{{date('Y-m-d')}}" autocomplete="off">
+                </div>
+                &nbsp;
+                <button class="btn btn-info btn-sm" type="submit" style="height: 38px;">Submit</button>
+            </div>
+        </form><br>
+        {{$form_answers->links()}}
+        <br>
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="bg-white border-b border-gray-200">
                 <div class="table-responsive">
@@ -26,7 +45,7 @@
 
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                                        data-target="#quest1Modal" style="font-size:13px;">
+                                        data-target="#quest1Modal" style="font-size:13px; ">
                                         Pertanyaan 1
                                     </button>
 
@@ -36,7 +55,7 @@
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-
+                                                    <h5>Pertanyaan 1</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -48,18 +67,22 @@
                                                     lain lain)
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <p class="text-sm-left mr-auto" style="font-size: 13px; ">Ya : 1
+                                                        Point
+                                                        <br>Tidak : 0 Point
+                                                    </p>
                                                     <button type="button" class="btn btn-success"
                                                         data-dismiss="modal">Close</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </th>
+
                                 <th scope="col">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                                        data-target="#quest2Modal"  style="font-size:13px;">
+                                        data-target="#quest2Modal" style="font-size:13px;">
                                         Pertanyaan 2
                                     </button>
 
@@ -69,7 +92,7 @@
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-
+                                                    <h5>Pertanyaan 2</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -79,6 +102,10 @@
                                                     Apakah pernah menggunakan transportasi umum?
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <p class="text-sm-left mr-auto" style="font-size: 13px; ">Ya : 1
+                                                        Point
+                                                        <br>Tidak : 0 Point
+                                                    </p>
                                                     <button type="button" class="btn btn-success"
                                                         data-dismiss="modal">Close</button>
                                                 </div>
@@ -89,7 +116,7 @@
                                 <th scope="col">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                                        data-target="#quest3Modal"  style="font-size:13px;">
+                                        data-target="#quest3Modal" style="font-size:13px;">
                                         Pertanyaan 3
                                     </button>
 
@@ -99,7 +126,7 @@
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-
+                                                    <h5>Pertanyaan 3</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -111,6 +138,10 @@
                                                     (wilayah yang terjangkit/zona merah)
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <p class="text-sm-left mr-auto" style="font-size: 13px; ">Ya : 1
+                                                        Point
+                                                        <br>Tidak : 0 Point
+                                                    </p>
                                                     <button type="button" class="btn btn-success"
                                                         data-dismiss="modal">Close</button>
                                                 </div>
@@ -121,7 +152,7 @@
                                 <th scope="col">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                                        data-target="#quest4Modal"  style="font-size:13px;">
+                                        data-target="#quest4Modal" style="font-size:13px;">
                                         Pertanyaan 4
                                     </button>
 
@@ -131,7 +162,7 @@
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-
+                                                    <h5>Pertanyaan 4</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -142,6 +173,10 @@
                                                     banyak?
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <p class="text-sm-left mr-auto" style="font-size: 13px; ">Ya : 1
+                                                        Point
+                                                        <br>Tidak : 0 Point
+                                                    </p>
                                                     <button type="button" class="btn btn-success"
                                                         data-dismiss="modal">Close</button>
                                                 </div>
@@ -152,7 +187,7 @@
                                 <th scope="col">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                                        data-target="#quest5Modal"  style="font-size:13px;">
+                                        data-target="#quest5Modal" style="font-size:13px;">
                                         Pertanyaan 5
                                     </button>
 
@@ -162,7 +197,7 @@
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-
+                                                    <h5>Pertanyaan 5</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -171,11 +206,16 @@
                                                 <div class="modal-body" style="color: #6FA74C;">
                                                     Apakah memiliki riwayat kontak erat dengan orang yang
                                                     dinyatakan
-                                                    ODP, PDP atau konfirm COVID-19 (berjabat tangan, berbicara, berada
+                                                    ODP, PDP atau konfirm COVID-19 (berjabat tangan, berbicara,
+                                                    berada
                                                     dalam satu
                                                     ruangan/ satu rumah)?
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <p class="text-sm-left mr-auto" style="font-size: 13px; ">Ya : 5
+                                                        Point
+                                                        <br>Tidak : 0 Point
+                                                    </p>
                                                     <button type="button" class="btn btn-success"
                                                         data-dismiss="modal">Close</button>
                                                 </div>
@@ -186,7 +226,7 @@
                                 <th scope="col">
                                     <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-outline-success" data-toggle="modal"
-                                        data-target="#quest6Modal"  style="font-size:13px;">
+                                        data-target="#quest6Modal" style="font-size:13px;">
                                         Pertanyaan 6
                                     </button>
 
@@ -196,7 +236,7 @@
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-
+                                                    <h5>Pertanyaan 6</h5>
                                                     <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
@@ -204,9 +244,14 @@
                                                 </div>
                                                 <div class="modal-body" style="color: #6FA74C;">
                                                     Apakah pernah mengalami demam/ batuk/pilek/sakit
-                                                    tenggorokan/sesak/hilang indera penciuman dalam 14 hari terakhir?
+                                                    tenggorokan/sesak/hilang indera penciuman dalam 14 hari
+                                                    terakhir?
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <p class="text-sm-left mr-auto" style="font-size: 13px; ">Ya : 5
+                                                        Point
+                                                        <br>Tidak : 0 Point
+                                                    </p>
                                                     <button type="button" class="btn btn-success"
                                                         data-dismiss="modal">Close</button>
                                                 </div>
@@ -214,8 +259,9 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th scope="col" style="width:5%;">Point</th>
-                                <th scope="col" style="width:5%;">Keterangan</th>
+                                <th class="table-success" scope="col" style="width:5%;">Point</th>
+                                <th class="text-light" scope="col" style="width:5%; background-color:#6FA74C;">
+                                    Keterangan</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
@@ -224,19 +270,48 @@
                             @foreach($form_answers as $key => $form)
                             <tr class="text-center">
                                 <th scope="row">{{ $form_answers->firstItem() + $key}}</th>
-                                <td>{{$form->created_at}}</td>
+                                <td>{{date('d F Y H:i:s', strtotime($form->created_at))}}</td>
                                 <td>{{$form->clientname}}</td>
-                                <td>{{$form->quest_one}}</td>
-                                <td>{{$form->quest_two}}</td>
-                                <td>{{$form->quest_three}}</td>
-                                <td>{{$form->quest_four}}</td>
-                                <td>{{$form->quest_five}}</td>
-                                <td>{{$form->quest_six}}</td>
-                                <td><strong>{{$form->hasil}}</strong></td>
-                                <td><strong>{{$form->keterangan}}</strong></td>
+                                <td>
+                                    @if(($form->quest_one)>0)
+                                    Ya
+                                    @else
+                                    Tidak
+                                    @endif
+                                </td>
+                                <td>@if(($form->quest_two)>0)
+                                    Ya
+                                    @else
+                                    Tidak
+                                    @endif</td>
+                                <td>@if(($form->quest_three)>0)
+                                    Ya
+                                    @else
+                                    Tidak
+                                    @endif</td>
+                                <td>@if(($form->quest_four)>0)
+                                    Ya
+                                    @else
+                                    Tidak
+                                    @endif</td>
+                                <td>@if(($form->quest_five)>0)
+                                    Ya
+                                    @else
+                                    Tidak
+                                    @endif</td>
+                                <td>@if(($form->quest_six)>0)
+                                    Ya
+                                    @else
+                                    Tidak
+                                    @endif</td>
+                                <td class="table-success" style="color:#6FA74C;"><strong>{{$form->hasil}}</strong>
+                                </td>
+                                <td class="text-light" style="background-color:#6FA74C;">
+                                    <strong>{{$form->keterangan}}</strong></td>
                                 <td>
                                     <a href="/dashboard/formhistory/{{$form->id}}/delete" type="button"
-                                        class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
+                                        class="btn btn-danger"
+                                        onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

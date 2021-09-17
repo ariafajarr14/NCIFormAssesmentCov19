@@ -39,7 +39,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     //Form
     Route::get('/dashboard/formhistory', 'App\Http\Controllers\FormController@index')->name('form.view');
     Route::get('/dashboard/formhistory/{id}/delete', 'App\Http\Controllers\FormController@destroy')->name('form.delete');
-
+    Route::get('/dashboard/formhistory/periode', 'App\Http\Controllers\FormController@periode')->name('form.periode');
     //Temperature
     Route::get('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@index')->name('temperature.view');
     Route::get('/dashboard/temperature/{id}/delete', 'App\Http\Controllers\TemperatureController@destroy')->name('temperature.delete');

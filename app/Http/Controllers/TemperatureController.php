@@ -80,11 +80,11 @@ class TemperatureController extends Controller
         
 
         if ($request->suhu >= 37.3){
+            $request -> save(); 
             return redirect()->intended('/dashboard/home')->with('suhutinggi', 'Maaf Anda tidak bisa masuk kantor, karena suhu >= 37.3°C, segera lakukan investigasi dan pemeriksaan petugas kesehatan !');
         }elseif($request->suhu < 37.3){
             $request -> save(); 
             return redirect()->intended('/dashboard/formassesment')->with('suhurendah', 'Anda bisa masuk kantor, karena suhu < 37.3°C, lanjutkan dengan mengisi form assesment di bawah ini !');
-            
         }
 
         

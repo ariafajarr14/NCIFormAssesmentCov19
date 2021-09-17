@@ -7,7 +7,7 @@
 
     <title>NCI Form Assesment Cov-19 @yield('title')</title>
 
-    <link rel="icon" href="image/logo.png" type="image/x-icon">
+    <link rel="icon" href="/image/logorel.png" type="image/x-icon">
     <!-- LOGO -->
 
     <!-- Fonts -->
@@ -21,7 +21,12 @@
     <link rel="stylesheet" href="/style/navbar.css" type="text/css">
     <link rel="stylesheet" href="/style/button.css" type="text/css">
     <link rel="stylesheet" href="/style/footer.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css" type="text/css">
+    
 
+    <!-- Javascript Bootstrap Datepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
+    </script>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -105,6 +110,24 @@
     </div>
     @endif
 
+    @if(session('welcomeback'))
+    <div class="alert alert-info" role="alert">
+        {{session('welcomeback')}} <strong>{{auth()->user()->name}} !</strong>
+    </div>
+    @endif
+
+    @if(session('userdibuat'))
+    <div class="alert alert-success" role="alert">
+        {{session('userdibuat')}} dengan NIK : <strong>{{auth()->user()->nik_id}}</strong>
+    </div>
+    @endif
+
+    @if(session('userdibuat'))
+    <div class="alert alert-success" role="alert">
+        {{session('userdibuat')}} dengan NIK : {{auth()->user()->nik_id}}
+    </div>
+    @endif
+
     @if(session('suhurendah'))
     <div class="alert alert-success" role="alert">
         {{session('suhurendah')}}
@@ -153,6 +176,11 @@
         <!-- Copyright -->
     </footer>
 
+
+    <script type="text/javascript">
+        $('.datepicker').datepicker();
+
+    </script>
 </body>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
@@ -182,5 +210,7 @@
     );
 
 </script>
+
+
 
 </html>
