@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FormAnswer;
 use App\Models\Temperature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,38 @@ class TemperatureController extends Controller
         $temperature = Temperature::paginate(15);
         
         return view('dashboard.temperature', compact('title','temperature'));
+    }
+
+    public function cetakTemperature()
+    {
+
+        $title = "Report Temperature";
+        $temperature = Temperature::all();
+
+        return view('dashboard.cetak_temperature', compact('title','temperature'));
+    }
+
+    public function cetakTemperaturePertanggalForm()
+    {
+        return view('dashboard.cetak_temperature_pertanggal_form');
+    }
+
+    public function cetakTemperaturePertanggal(Request $request)
+    {
+        //dd(["Tanggal Awal : ".$tanggal_awal, "Tanggal Akhir : ".$tanggal_akhir]);
+        //return view('dashboard.cetak_temperature_pertanggal');
+        //$temperature = Temperature::where('created_at', '>=', $tanggal_awal.' 00:00:00')->where('created_at', '<=', $tanggal_akhir.' 23:59:59');
+        //return view('dashboard.cetak_temperature_pertanggal', compact('temperature'));
+
+        $tanggal_awal = date('Y-m-d',strtotime($request->tanggal_awal));
+        $tanggal_akhir = date('Y-m-d',strtotime($request->tanggal_akhir));
+
+        
+        $title = "Report Temperature dari tanggal $tanggal_awal sampai tanggal $tanggal_akhir";
+        
+        $temperature = Temperature::where('created_at', '>=', $tanggal_awal.' 00:00:00')->where('created_at', '<=', $tanggal_akhir.' 23:59:59')->get();
+        return view('dashboard.cetak_temperature_pertanggal', compact('title', 'temperature'));
+
     }
 
     public function periode(Request $request)

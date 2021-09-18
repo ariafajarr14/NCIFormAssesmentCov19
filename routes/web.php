@@ -44,6 +44,10 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     Route::get('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@index')->name('temperature.view');
     Route::get('/dashboard/temperature/{id}/delete', 'App\Http\Controllers\TemperatureController@destroy')->name('temperature.delete');
     Route::get('/dashboard/temperature/periode', 'App\Http\Controllers\TemperatureController@periode')->name('temperature.periode');
+    Route::get('/dashboard/temperature/cetak_temperature', 'App\Http\Controllers\TemperatureController@cetakTemperature')->name('temperature.cetak');
+    Route::get('/dashboard/temperature/cetak_temperature_pertanggal_form', 'App\Http\Controllers\TemperatureController@cetakTemperaturePertanggalForm')->name('temperature.cetak.pertanggal.form');
+    Route::get('/dashboard/temperature/cetak_temperature_pertanggal/{tanggal_awal}/{tanggal_akhir}', 'App\Http\Controllers\TemperatureController@cetakTemperaturePertanggal')->name('temperature.cetak.pertanggal');
+
 
 });
 
