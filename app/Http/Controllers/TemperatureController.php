@@ -20,9 +20,28 @@ class TemperatureController extends Controller
         //$temperature = Temperature::all();
         //return view('dashboard.temperature',['temperature' => $temperature]);
 
-        return view('dashboard.temperature', [
-            'temperature' => DB::table('temperature')->paginate(10)
-        ]);
+        //return view('dashboard.temperature', [
+        //    'temperature' => DB::table('temperature')->paginate(10)
+        //]);
+        $title = "Report Temperature";
+        $temperature = Temperature::all();
+        $temperature = Temperature::paginate(15);
+        
+        return view('dashboard.temperature', compact('title','temperature'));
+    }
+
+    public function periode(Request $request)
+    {
+        
+        $tanggal_awal = date('Y-m-d',strtotime($request->tanggal_awal));
+        $tanggal_akhir = date('Y-m-d',strtotime($request->tanggal_akhir));
+
+        
+        $title = "Report Temperature dari tanggal $tanggal_awal sampai tanggal $tanggal_akhir";
+        
+        $temperature = Temperature::where('created_at', '>=', $tanggal_awal.' 00:00:00')->where('created_at', '<=', $tanggal_akhir.' 23:59:59')->paginate(15);
+        $temperature->appends($request->all());
+        return view('dashboard.temperature', compact('title', 'temperature'));
     }
 
     public function details()

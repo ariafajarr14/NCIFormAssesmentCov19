@@ -43,6 +43,8 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     //Temperature
     Route::get('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@index')->name('temperature.view');
     Route::get('/dashboard/temperature/{id}/delete', 'App\Http\Controllers\TemperatureController@destroy')->name('temperature.delete');
+    Route::get('/dashboard/temperature/periode', 'App\Http\Controllers\TemperatureController@periode')->name('temperature.periode');
+
 });
 
 Route::group(['middleware' => ['auth','checkRole:employee']], function(){

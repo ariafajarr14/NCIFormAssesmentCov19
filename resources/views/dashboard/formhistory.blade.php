@@ -11,11 +11,10 @@
 
 
 
-<div class="mt-4" style="height: auto;">
-
-
-
+<div class="mt-4 mb-20" style="height: auto;">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <p><i><u>{{$title}}</u></i></p>
+    
         <form method="get" action="{{route('form.periode')}}">
             <div class="form-row">
                 <div class="form-group col-md-2">
@@ -28,13 +27,14 @@
                     <input type="text" id="datepicker2" name="tanggal_akhir" class="form-control"
                         placeholder="Tanggal Akhir" autocomplete="off" value="{{date('Y-m-d')}}">
                 </div>
-                <div class="form-group col-md-2" style="margin-top:31px;">
-                    <button class="btn btn-info" type="submit" style="height: 38px;">Submit</button>&nbsp;
+                <div class="form-group col-md-3" style="margin-top:31px;">
+                    <button class="btn btn-info" type="submit" style="height: 38px;">Filter</button>&nbsp;
                     <a href="{{route('form.view')}}" class="btn btn-danger " type="submit" style="height: 38px;"><i
-                            class="fa fa-refresh" aria-hidden="true">Refresh</i></a>
+                            class="fa fa-refresh" aria-hidden="true">Get All Data</i></a>
                 </div>
             </div>
         </form>
+        {{$form_answers->links()}}
         <br>
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="bg-white border-b border-gray-200">
@@ -42,7 +42,7 @@
                     <table class="table">
                         <thead>
                             <tr class="text-center" style="color: #6FA74C ;">
-                                <th scope="col" style="width:5%;">No</th>
+                                <th scope="col" style="width:5%;">#</th>
                                 <th scope="col" style="width:12%;">Tanggal</th>
                                 <th scope="col" style="width:30%;">Nama</th>
                                 <th scope="col" style="width:10%;">
@@ -273,8 +273,8 @@
 
                             @foreach($form_answers as $e => $form)
                             <tr class="text-center">
-                                <th scope="row">{{$e+1}}</th>
-                                <td>{{$form->created_at}}</td>
+                                <th scope="row">{{$form_answers->firstItem() + $e}}</th>
+                                <td>{{date('d F Y H:i:s', strtotime($form->created_at))}}</td>
                                 <td>{{$form->clientname}}</td>
                                 <td>
                                     @if(($form->quest_one)>0)
@@ -319,14 +319,12 @@
                                 </td>
                             </tr>
                             @endforeach
-
                         </tbody>
-
                     </table>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br>
 @endsection

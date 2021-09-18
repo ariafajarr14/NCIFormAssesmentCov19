@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\FormAnswer;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\CursorPaginator;
 
 class FormController extends Controller
 {
@@ -16,21 +21,11 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
-        //$form_answers = FormAnswer::all();
-        //$form_answers = FormAnswer::paginate(5);
-        
-        //return view('dashboard.formhistory', compact('form_answers'));
-        //$form = FormAnswer::with('form')->simplePaginate(10);
-        //return view('dashboard.formhistory',['form' => $form]);
-
-        //return view('dashboard.formhistory', [
-        //    'form_answers' => DB::table('form_answers')->paginate(10)
-        //]);
-
+        $title = "Report Assesment";
         $form_answers = FormAnswer::all();
-
-        return view('dashboard.formhistory', compact('form_answers'));
+        $form_answers = FormAnswer::paginate(15);
+        
+        return view('dashboard.formhistory', compact('title','form_answers'));
     }
 
     public function index2()
@@ -48,12 +43,14 @@ class FormController extends Controller
 
     public function periode(Request $request)
     {
+        
         $tanggal_awal = date('Y-m-d',strtotime($request->tanggal_awal));
         $tanggal_akhir = date('Y-m-d',strtotime($request->tanggal_akhir));
-
-        $title = "List dari tanggal $tanggal_awal sampai tanggal $tanggal_akhir";
-        $form_answers = FormAnswer::where('created_at', '>=', $tanggal_awal.' 00:00:00')->where('created_at', '<=', $tanggal_akhir.' 23:59:59')->get();
-
+        
+        $title = "Report Assesment dari tanggal $tanggal_awal sampai tanggal $tanggal_akhir";
+        
+        $form_answers = FormAnswer::where('created_at', '>=', $tanggal_awal.' 00:00:00')->where('created_at', '<=', $tanggal_akhir.' 23:59:59')->paginate(15);
+        $form_answers->appends($request->all());
         return view('dashboard.formhistory', compact('title', 'form_answers'));
     }
 
