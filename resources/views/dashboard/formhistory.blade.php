@@ -16,21 +16,25 @@
 
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <form action="{{route('form.periode')}}" method="get">
+        <form method="get" action="{{route('form.periode')}}">
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <input type="text" name="tanggal_awal" class="form-control datepicker" placeholder="Tanggal Awal"
-                         value="{{date('Y-m-d')}}" autocomplete="off">
+                    <label for="">Tanggal Awal : </label>
+                    <input type="text" id="datepicker" name="tanggal_awal" class="form-control"
+                        placeholder="Tanggal Awal" autocomplete="off" value="{{date('Y-m-d')}}">
                 </div>
                 <div class="form-group col-md-2">
-                    <input type="text" name="tanggal_akhir" class="form-control datepicker" placeholder="Tanggal Akhir"
-                         value="{{date('Y-m-d')}}" autocomplete="off">
+                    <label for="">Tanggal Akhir : </label>
+                    <input type="text" id="datepicker2" name="tanggal_akhir" class="form-control"
+                        placeholder="Tanggal Akhir" autocomplete="off" value="{{date('Y-m-d')}}">
                 </div>
-                &nbsp;
-                <button class="btn btn-info btn-sm" type="submit" style="height: 38px;">Submit</button>
+                <div class="form-group col-md-2" style="margin-top:31px;">
+                    <button class="btn btn-info" type="submit" style="height: 38px;">Submit</button>&nbsp;
+                    <a href="{{route('form.view')}}" class="btn btn-danger " type="submit" style="height: 38px;"><i
+                            class="fa fa-refresh" aria-hidden="true">Refresh</i></a>
+                </div>
             </div>
-        </form><br>
-        {{$form_answers->links()}}
+        </form>
         <br>
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="bg-white border-b border-gray-200">
@@ -267,10 +271,10 @@
                         </thead>
                         <tbody>
 
-                            @foreach($form_answers as $key => $form)
+                            @foreach($form_answers as $e => $form)
                             <tr class="text-center">
-                                <th scope="row">{{ $form_answers->firstItem() + $key}}</th>
-                                <td>{{date('d F Y H:i:s', strtotime($form->created_at))}}</td>
+                                <th scope="row">{{$e+1}}</th>
+                                <td>{{$form->created_at}}</td>
                                 <td>{{$form->clientname}}</td>
                                 <td>
                                     @if(($form->quest_one)>0)

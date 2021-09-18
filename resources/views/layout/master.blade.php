@@ -21,16 +21,13 @@
     <link rel="stylesheet" href="/style/navbar.css" type="text/css">
     <link rel="stylesheet" href="/style/button.css" type="text/css">
     <link rel="stylesheet" href="/style/footer.css" type="text/css">
-    <link rel="stylesheet" href="/css/bootstrap-datepicker.css" type="text/css">
-    
 
-    <!-- Javascript Bootstrap Datepicker -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js">
-    </script>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>    
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -175,42 +172,24 @@
         </div>
         <!-- Copyright -->
     </footer>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript" src="/js/popper.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/style/date.js"></script>
+    <script type="text/javascript" src="/style/navbar.js"></script>
 
-
-    <script type="text/javascript">
-        $('.datepicker').datepicker();
-
+    <script>
+        $('#datepicker').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'yyyy-mm-dd',
+        });
+    </script>
+    <script>
+        $('#datepicker2').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'yyyy-mm-dd',
+        });
     </script>
 </body>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/js/popper.min.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
-<script type="text/javascript" src="/style/date.js"></script>
-<script type="text/javascript" src="/style/navbar.js"></script>
-<script>
-    $(window).on('load', function () {
-        var delayMs = 100; // delay in milliseconds
-
-        setTimeout(function () {
-            $('#myModal').modal('show');
-        }, delayMs);
-    });
-
-</script>
-<script>
-    $(document).ready(function ()
-
-        {
-
-            $('.table-paginate').dataTable();
-
-        }
-
-    );
-
-</script>
-
-
-
 </html>
