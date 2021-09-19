@@ -9,27 +9,6 @@
 <!-- cara penulisan isi section yang panjang -->
 @section('konten')
 
-<!-- 
-<div class="modal fade" id="myModal" style="color: #6FA74C;">
-        <div class="modal-dialog vertical-align-center">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Halo! <strong>{{auth()->user()->name}}</strong></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" align="left">
-                    <p>Jangan lupa untuk mengisi formulir Assesment Covid-19 sebelum masuk kantor!</p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
--->
-
-
 <div class="mt-4">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -41,11 +20,20 @@
                                 alt="Card image cap" style="width: 135px;">
                             <div class="card-body">
                                 <h4>
-                                    Report History Assesment Covid-19
+                                    Report History Self Assesment Covid-19
                                 </h4>
 
                                 <a href="/dashboard/formhistory" type="button" class="btn btn-outline-success mt-4"
-                                    style="width: 80%; ">Check</a>
+                                    style="width: 80%; "><i class="fa fa-list-alt" aria-hidden="true"></i>
+                                    Check</a>
+                                <a href="{{route('form.cetak.assesment.all')}}" target="_blank" type="button"
+                                    class="btn btn-outline-success mt-4" style="width: 80%; "><i class="fa fa-print"
+                                        aria-hidden="true"></i>
+                                    Print All Reports</a>
+                                <a href="{{route('form.cetak.assesment.backhome')}}" type="button"
+                                    class="btn btn-outline-success mt-4" style="width: 80%; "><i class="fa fa-print"
+                                        aria-hidden="true"></i>
+                                    Print by Date</a>
                                 <br><br>
                             </div>
                         </div>
@@ -54,10 +42,20 @@
                                 alt="Card image cap" style="width: 130px;">
                             <div class="card-body">
                                 <h4 class="mt-2">
-                                    Report Temperature Record
+                                    Report Temperature Data
                                 </h4>
                                 <a href="/dashboard/temperature" type="button" class="btn btn-outline-success"
-                                    style="width: 80%; margin-top:20px;">Check</a>
+                                    style="width: 80%; margin-top:20px;"><i class="fa fa-list-alt"
+                                        aria-hidden="true"></i>
+                                    Check</a>
+                                <a href="{{route('temperature.cetak')}}" target="_blank" type="button"
+                                    class="btn btn-outline-success mt-4" style="width: 80%; "><i class="fa fa-print"
+                                        aria-hidden="true"></i>
+                                    Print All Reports</a>
+                                <a href="{{route('temperature.cetak.pertanggal.form.backhome')}}" type="button"
+                                    class="btn btn-outline-success mt-4" style="width: 80%; "><i class="fa fa-print"
+                                        aria-hidden="true"></i>
+                                    Print by Date</a>
                                 <br><br>
                             </div>
                         </div>

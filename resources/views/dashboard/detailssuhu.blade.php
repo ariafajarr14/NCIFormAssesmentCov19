@@ -12,11 +12,11 @@
 
 
 <div class="mt-4">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8"  style="width: 60%;">{{$details->links()}}<br>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="width: 60%;">{{$details->links()}}<br>
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg ml-auto mr-auto">
-            <div class="bg-white border-b border-gray-200" >
-            <div class="table-responsive">
-                    <table class="table" >
+            <div class="bg-white border-b border-gray-200">
+                <div class="table-responsive">
+                    <table class="table">
                         <thead>
                             <tr class="text-center" style="color: #6FA74C ;">
                                 <th scope="col" style="width:5%;">No</th>
@@ -29,8 +29,9 @@
                             @foreach($details as $key => $det)
                             <tr class="text-center">
                                 <th scope="row">{{ $details->firstItem() + $key}}</th>
-                                <td>{{$det->created_at}}</td>
-                                <td class="text-light" style="background-color:#6FA74C;"><strong>{{$det->suhu}}&#8451;</strong></td>
+                                <td>{{date('d F Y H:i:s', strtotime($det->created_at))}}</td>
+                                <td class="text-light" style="background-color:#6FA74C;">
+                                    <strong>{{$det->suhu}}&#8451;</strong></td>
                             </tr>
                             @endforeach
 

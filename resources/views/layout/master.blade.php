@@ -12,6 +12,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
@@ -25,7 +26,7 @@
 
     <!-- Scripts -->
 
-    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>    
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
@@ -50,10 +51,10 @@
                         <a class="nav-link" href="{{route('user.home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('user.viewdetailsassesment')}}">History Assesment</a>
+                        <a class="nav-link" href="{{route('user.viewdetailsassesment')}}">Assesment History</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('user.viewdetailsuhu')}}">History Suhu</a>
+                        <a class="nav-link" href="{{route('user.viewdetailsuhu')}}">Temperature History</a>
                     </li>
                     @endif
 
@@ -74,8 +75,12 @@
                             {{auth()->user()->name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" href="{{route('user.profile')}}">Profile</a>
-                            <a class="dropdown-item" href="{{route('post.logout')}}">Logout</a>
+                            <a class="dropdown-item" href="{{route('user.profile')}}"><i class="fa fa-user"
+                                    aria-hidden="true"></i>
+                                Profile</a>
+                            <a class="dropdown-item" href="{{route('post.logout')}}"><i class="fa fa-sign-out"
+                                    aria-hidden="true"></i>
+                                Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -116,12 +121,6 @@
     @if(session('userdibuat'))
     <div class="alert alert-success" role="alert">
         {{session('userdibuat')}} dengan NIK : <strong>{{auth()->user()->nik_id}}</strong>
-    </div>
-    @endif
-
-    @if(session('userdibuat'))
-    <div class="alert alert-success" role="alert">
-        {{session('userdibuat')}} dengan NIK : {{auth()->user()->nik_id}}
     </div>
     @endif
 
@@ -173,7 +172,7 @@
         <!-- Copyright -->
     </footer>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
-    
+
     <script type="text/javascript" src="/js/popper.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript" src="/style/date.js"></script>
@@ -184,12 +183,15 @@
             uiLibrary: 'bootstrap4',
             format: 'yyyy-mm-dd',
         });
+
     </script>
     <script>
         $('#datepicker2').datepicker({
             uiLibrary: 'bootstrap4',
             format: 'yyyy-mm-dd',
         });
+
     </script>
 </body>
+
 </html>

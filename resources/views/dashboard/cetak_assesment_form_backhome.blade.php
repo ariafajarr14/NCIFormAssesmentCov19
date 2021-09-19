@@ -16,7 +16,7 @@
                 <div class="container mt-3s text-center">
                     <div class="card-deck">
                         <div class="card ">
-                            <a class="btn btn-success" href="{{route('temperature.view')}}"
+                            <a class="btn btn-success" href="{{route('admin.dashboard')}}"
                                 style="position: absolute;margin-top:20px;margin-left:20px;"><i
                                     class="fa fa-chevron-circle-left" aria-hidden="true"></i>
                                 Back</a>
@@ -25,8 +25,10 @@
 
                             <div class="card-body">
                                 <h4>
-                                    Temperature Data Report by Date
+                                    Self Assesment Covid-19 Report By Date
                                 </h4>
+
+
                                 <div class="form-group col-md-12">
                                     <label for="">First Date : </label>
                                     <input type="date" id="tanggal_awal" name="tanggal_awal" class="form-control"
@@ -39,7 +41,7 @@
                                 </div>
 
                                 <a href=""
-                                    onclick="this.href='/dashboard/temperature/cetak_temperature_pertanggal/'+ document.getElementById('tanggal_awal').value + '/' + document.getElementById('tanggal_akhir').value"
+                                    onclick="this.href='/dashboard/formhistory/cetak_assesment_pertanggal/'+ document.getElementById('tanggal_awal').value + '/' + document.getElementById('tanggal_akhir').value"
                                     class="btn btn-success mt-4" target="_blank" style="width: 100%; "><i
                                         class="fa fa-print" aria-hidden="true"></i>
                                     Print</a>

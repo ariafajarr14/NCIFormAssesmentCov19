@@ -33,19 +33,27 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     //User
     Route::get('/dashboard/userlist/{id}/delete', 'App\Http\Controllers\AuthController@destroy')->name('userlist.delete');
     Route::get('/dashboard/userlist', 'App\Http\Controllers\AuthController@userlist')->name('admin.userlist');
+    
     //Dashboard
     Route::get('/dashboard/home', 'App\Http\Controllers\DashboardController@index')->name('user.home');
     Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');
+    
     //Form
     Route::get('/dashboard/formhistory', 'App\Http\Controllers\FormController@index')->name('form.view');
     Route::get('/dashboard/formhistory/{id}/delete', 'App\Http\Controllers\FormController@destroy')->name('form.delete');
     Route::get('/dashboard/formhistory/periode', 'App\Http\Controllers\FormController@periode')->name('form.periode');
+    Route::get('/dashboard/formhistory/cetak_assesment_form', 'App\Http\Controllers\FormController@cetakAssesmentForm')->name('form.cetak.assesment');
+    Route::get('/dashboard/formhistory/cetak_assesment_form_backhome', 'App\Http\Controllers\FormController@cetakAssesmentFormBackhome')->name('form.cetak.assesment.backhome');
+    Route::get('/dashboard/formhistory/cetak_assesment_all', 'App\Http\Controllers\FormController@cetakAssesmentAll')->name('form.cetak.assesment.all');
+    Route::get('/dashboard/formhistory/cetak_assesment_pertanggal/{tanggal_awal}/{tanggal_akhir}', 'App\Http\Controllers\FormController@cetakAssesmentPertanggal')->name('form.cetak.assesment.pertanggal');
+
     //Temperature
     Route::get('/dashboard/temperature', 'App\Http\Controllers\TemperatureController@index')->name('temperature.view');
     Route::get('/dashboard/temperature/{id}/delete', 'App\Http\Controllers\TemperatureController@destroy')->name('temperature.delete');
     Route::get('/dashboard/temperature/periode', 'App\Http\Controllers\TemperatureController@periode')->name('temperature.periode');
     Route::get('/dashboard/temperature/cetak_temperature', 'App\Http\Controllers\TemperatureController@cetakTemperature')->name('temperature.cetak');
     Route::get('/dashboard/temperature/cetak_temperature_pertanggal_form', 'App\Http\Controllers\TemperatureController@cetakTemperaturePertanggalForm')->name('temperature.cetak.pertanggal.form');
+    Route::get('/dashboard/temperature/cetak_temperature_pertanggal_form_backhome', 'App\Http\Controllers\TemperatureController@cetakTemperaturePertanggalFormBackhome')->name('temperature.cetak.pertanggal.form.backhome');
     Route::get('/dashboard/temperature/cetak_temperature_pertanggal/{tanggal_awal}/{tanggal_akhir}', 'App\Http\Controllers\TemperatureController@cetakTemperaturePertanggal')->name('temperature.cetak.pertanggal');
 
 

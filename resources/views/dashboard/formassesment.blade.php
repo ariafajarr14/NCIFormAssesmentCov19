@@ -61,8 +61,8 @@
                                         kota/internasional?
                                         (wilayah yang terjangkit/zona merah)</b></div>
                                 <div id="options">
-                                    <label class="options">Ya <input type="radio" name="quest_three" value="1"
-                                            required> <span class="checkmark"></span> </label>
+                                    <label class="options">Ya <input type="radio" name="quest_three" value="1" required>
+                                        <span class="checkmark"></span> </label>
                                     <label class="options">Tidak <input type="radio" name="quest_three" value="0">
                                         <span class="checkmark"></span> </label>
                                 </div>
@@ -129,7 +129,8 @@
                 </div>
 
                 <div class="wrap mt-5">
-                    <button type="submit" class="button" onclick="return confirm('Anda Yakin Mengisi Pernyataan Ini Dengan Sebenar-benarnya ?')">Submit</button>
+                    <button type="submit" class="button"
+                        onclick="return confirm('Anda Yakin Mengisi Pernyataan Ini Dengan Sebenar-benarnya ?')">Submit</button>
                 </div>
 
             </div>

@@ -38,6 +38,7 @@
                         <!-- Button trigger modal -->
                         <a type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"
                             style="position:absolute; width: 120px; font-size: 12px; margin-left: 15px; margin-top: 10px;">
+                            <i class="fa fa-book" aria-hidden="true"></i>
                             Baca Instrument
                         </a>
 
@@ -103,7 +104,8 @@
                             <h4>
                                 Form Assesment Covid-19
                             </h4>
-                            <p class="mt-4">Tanggal : <span id="tanggal"></span></p>
+                            <p class="mt-4"><i class="fa fa-calendar-o" aria-hidden="true"></i> : <span
+                                    id="tanggal"></span></p>
 
                             <!-- Button trigger modal -->
                             <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalSuhu"
@@ -127,11 +129,12 @@
                                             <form method="POST" action="{{route('temperature.create')}}">
                                                 @csrf
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="inputSuhu" name="suhu" placeholder="Masukan Suhu Tubuh"
-                                                        required>
+                                                    <input type="text" class="form-control" id="inputSuhu" name="suhu"
+                                                        placeholder="Masukan Suhu Tubuh" required>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="submit" class="btn btn-success" onclick="return confirm('Apakah Anda yakin mengisi suhu tersebut dengan sesuai ?')">Next</button>
+                                                    <button type="submit" class="btn btn-success"
+                                                        onclick="return confirm('Apakah Anda yakin mengisi suhu tersebut dengan sesuai ?')">Next</button>
                                                 </div>
                                             </form>
                                         </div>

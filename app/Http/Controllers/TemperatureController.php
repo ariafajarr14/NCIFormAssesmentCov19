@@ -45,6 +45,11 @@ class TemperatureController extends Controller
         return view('dashboard.cetak_temperature_pertanggal_form');
     }
 
+    public function cetakTemperaturePertanggalFormBackhome()
+    {
+        return view('dashboard.cetak_temperature_pertanggal_form_backhome');
+    }
+
     public function cetakTemperaturePertanggal(Request $request)
     {
         //dd(["Tanggal Awal : ".$tanggal_awal, "Tanggal Akhir : ".$tanggal_akhir]);
@@ -56,7 +61,7 @@ class TemperatureController extends Controller
         $tanggal_akhir = date('Y-m-d',strtotime($request->tanggal_akhir));
 
         
-        $title = "Report Temperature dari tanggal $tanggal_awal sampai tanggal $tanggal_akhir";
+        $title = "Laporan Data Suhu Karyawan dari Tanggal $tanggal_awal Sampai $tanggal_akhir";
         
         $temperature = Temperature::where('created_at', '>=', $tanggal_awal.' 00:00:00')->where('created_at', '<=', $tanggal_akhir.' 23:59:59')->get();
         return view('dashboard.cetak_temperature_pertanggal', compact('title', 'temperature'));

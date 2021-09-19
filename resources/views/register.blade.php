@@ -8,6 +8,7 @@
     <link rel="icon" href="/image/logorel.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="style/register.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <title>Register</title>
 </head>
@@ -21,7 +22,7 @@
         <div class="rightarea text-center col-sm-5" style="background-color:#FFFFFF;">
 
             <h2 class="mt-5 col-sm-10 ml-auto mr-auto">Self Assesment Resiko Covid 19 (NCI)</h2>
-            <h5 class="mt-5">Tanggal : <span id="tanggal"></span></h5>
+            <h5 class="mt-5"><i class="fa fa-calendar-o" aria-hidden="true"></i> : <span id="tanggal"></span></h5>
             <br>
             <form method="POST" action="{{route('post.register')}}" class="text-center mt-0 col-sm-8 ml-auto mr-auto"
                 style="margin-top: 10px;">
@@ -93,7 +94,8 @@
                 </div>
                 <br>
                 <button href="homepage" type="submit" class="btn btn-success col-sm-12"
-                    style="margin-top: 7px;">Register</button>
+                    style="margin-top: 7px;"><i class="fa fa-sign-in" aria-hidden="true"></i>
+Register</button>
                 <small id="emailHelp" class="form-text text-muted">Sudah punya akun? <a href="/">Login</a></small>
             </form><br><br>
         </div>

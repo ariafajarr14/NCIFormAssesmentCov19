@@ -75,7 +75,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <center><button type="submit" class="btn btn-success mt-1 mb-2">Update</button></center>
+                            <center><button type="submit" class="btn btn-success mt-1 mb-2"><i
+                                        class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    Update</button></center>
                         </form>
                     </div>
                     @endforeach

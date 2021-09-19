@@ -8,6 +8,7 @@
     <link rel="icon" href="/image/logorel.png" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="style/login.css" type="text/css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
 
     <title>Login</title>
 </head>
@@ -19,9 +20,10 @@
         <div class="leftarea col-sm-7 text-center mx-auto align-self-center" style="background-color:#F1FFD6;"><img
                 class="img-fluid" src="image/logo.png" alt="" style="width: 400px;"></div>
         <div class="rightarea text-center col-sm-5" style="background-color:#FFFFFF;">
-            
+
             <h2 class="mt-5 col-sm-10 ml-auto mr-auto">Self Assesment Resiko Covid 19 (NCI)</h2>
-            <h5 class="mt-5">Tanggal : <span id="tanggal"></span></h5>
+            <h5 class="mt-5"><i class="fa fa-calendar-o" aria-hidden="true"></i>
+                : <span id="tanggal"></span></h5>
             <br>
             @if(session('errors'))
             <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
@@ -57,7 +59,8 @@
                         autocomplete="current-password" placeholder="Masukkan Password">
                 </div>
                 <br>
-                <button type="submit" class="btn btn-success col-sm-12">Login</button>
+                <button type="submit" class="btn btn-success col-sm-12"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                    Login</button>
                 <small id="emailHelp" class="form-text text-muted">Belum punya akun? <a
                         href="register">Sign-up</a></small>
             </form>

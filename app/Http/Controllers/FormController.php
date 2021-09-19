@@ -54,6 +54,30 @@ class FormController extends Controller
         return view('dashboard.formhistory', compact('title', 'form_answers'));
     }
 
+    public function cetakAssesmentForm(){
+        return view('dashboard.cetak_assesment_form');
+    }
+    public function cetakAssesmentFormBackhome(){
+        return view('dashboard.cetak_assesment_form_backhome');
+    }
+
+    public function cetakAssesmentAll(){
+        $title = "Report Formulir Assesment Covid-19";
+        $form_answers = FormAnswer::all();
+
+        return view('dashboard.cetak_assesment_all', compact('title','form_answers'));
+    }
+
+    public function cetakAssesmentPertanggal(Request $request){
+        $tanggal_awal = date('Y-m-d',strtotime($request->tanggal_awal));
+        $tanggal_akhir = date('Y-m-d',strtotime($request->tanggal_akhir));
+        
+        $title = "Laporan Data Self Assesment Covid-19 Karyawan dari Tanggal $tanggal_awal Sampai $tanggal_akhir";
+        
+        $form_answers = FormAnswer::where('created_at', '>=', $tanggal_awal.' 00:00:00')->where('created_at', '<=', $tanggal_akhir.' 23:59:59')->get();
+        return view('dashboard.cetak_assesment_pertanggal', compact('title', 'form_answers'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

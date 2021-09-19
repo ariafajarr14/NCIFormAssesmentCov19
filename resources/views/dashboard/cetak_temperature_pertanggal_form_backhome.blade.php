@@ -16,7 +16,7 @@
                 <div class="container mt-3s text-center">
                     <div class="card-deck">
                         <div class="card ">
-                            <a class="btn btn-success" href="{{route('temperature.view')}}"
+                            <a class="btn btn-success" href="{{route('admin.dashboard')}}"
                                 style="position: absolute;margin-top:20px;margin-left:20px;"><i
                                     class="fa fa-chevron-circle-left" aria-hidden="true"></i>
                                 Back</a>

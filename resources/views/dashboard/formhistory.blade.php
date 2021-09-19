@@ -3,7 +3,7 @@
 
 <!-- isi bagian judul halaman -->
 <!-- cara penulisan isi section yang pendek -->
-@section('judul_halaman', 'Report History Assesment')
+@section('judul_halaman', 'Report History Self Assesment Covid-19')
 
 <!-- isi bagian konten -->
 <!-- cara penulisan isi section yang panjang -->
@@ -13,8 +13,8 @@
 
 <div class="mt-4 mb-20" style="height: auto;">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <p><i><u>{{$title}}</u></i></p>
-    
+        <p><i><u>{{$title}}</u></i></p>
+
         <form method="get" action="{{route('form.periode')}}">
             <div class="form-row">
                 <div class="form-group col-md-2">
@@ -28,9 +28,17 @@
                         placeholder="Tanggal Akhir" autocomplete="off" value="{{date('Y-m-d')}}">
                 </div>
                 <div class="form-group col-md-3" style="margin-top:31px;">
-                    <button class="btn btn-info" type="submit" style="height: 38px;">Filter</button>&nbsp;
-                    <a href="{{route('form.view')}}" class="btn btn-danger " type="submit" style="height: 38px;"><i
-                            class="fa fa-refresh" aria-hidden="true">Get All Data</i></a>
+                    <button class="btn btn-info" type="submit"><i class="fa fa-filter" aria-hidden="true"></i>
+                        Filter</button>&nbsp;
+                    <a href="{{route('form.view')}}" class="btn btn-warning " type="submit"><i aria-hidden="true"><i
+                                class="fa fa-refresh" aria-hidden="true"></i> Get All Data</i></a>
+                </div>
+                <div class="form-group col-md-5 ml-auto" style="margin-top:31px;">
+                    <a href="{{route('form.cetak.assesment.all')}}" target="_blank" class="btn btn-outline-dark"
+                        type="submit" style="height: 38px;"><i class="fa fa-print" aria-hidden="true"></i> Print Seluruh
+                        Data</a>&nbsp;
+                    <a href="{{route('form.cetak.assesment')}}" class="btn btn-outline-dark" type="submit"
+                        style="height: 38px;"><i class="fa fa-print" aria-hidden="true"></i> Print Data Per Tanggal</a>
                 </div>
             </div>
         </form>
@@ -313,9 +321,10 @@
                                 <td class="text-light" style="background-color:#6FA74C;">
                                     <strong>{{$form->keterangan}}</strong></td>
                                 <td>
-                                    <a href="/dashboard/formhistory/{{$form->id}}/delete" type="button"
-                                        class="btn btn-danger"
-                                        onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
+                                    <a href="/dashboard/dashboard_admin/formhistory/{{$form->id}}/delete" type="button"
+                                        class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')"><i
+                                            class="fa fa-trash" aria-hidden="true"></i>
+                                        Delete</a>
                                 </td>
                             </tr>
                             @endforeach

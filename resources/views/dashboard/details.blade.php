@@ -238,7 +238,8 @@
                                     </div>
                                 </th>
                                 <th class="table-success " scope="col" style="width:5%;">Point</th>
-                                <th class="text-light" scope="col" style="width:5%; background-color:#6FA74C;">Keterangan
+                                <th class="text-light" scope="col" style="width:5%; background-color:#6FA74C;">
+                                    Keterangan
                                 </th>
                             </tr>
                         </thead>
@@ -247,7 +248,7 @@
                             @foreach($details as $key => $det)
                             <tr class="text-center">
                                 <th scope="row">{{ $details->firstItem() + $key}}</th>
-                                <td>{{$det->created_at}}</td>
+                                <td>{{date('d F Y H:i:s', strtotime($det->created_at))}}</td>
                                 <td>@if(($det->quest_one)>0)
                                     Ya
                                     @else

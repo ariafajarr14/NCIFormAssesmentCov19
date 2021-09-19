@@ -20,6 +20,7 @@
                         <thead>
                             <tr class="text-center">
                                 <th scope="col">No</th>
+                                <th scope="col">NIK</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Divisi</th>
                                 <th scope="col">Jenis Kelamin</th>
@@ -30,12 +31,15 @@
                             @foreach($users as $key => $user)
                             <tr class="text-center">
                                 <th scope="row">{{ $users->firstItem() + $key}}</th>
+                                <td>{{$user->nik_id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->divisi}}</td>
                                 <td>{{$user->jenis_kelamin}}</td>
                                 <td>
                                     <a href="/dashboard/userlist/{{$user->id}}/delete" type="button"
-                                        class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
+                                        class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')"><i
+                                            class="fa fa-trash" aria-hidden="true"></i>
+                                        Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -48,4 +52,3 @@
 </div>
 <br><br><br><br><br><br><br><br>
 @endsection
-

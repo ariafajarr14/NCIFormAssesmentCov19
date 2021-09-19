@@ -16,16 +16,17 @@
                 <div class="container my-1">
                     <img src="/image/smileicon.png" class="img-fluid ml-auto mr-auto" style="width:150px;" alt="">
                     <div class="question ml-sm-5 pl-sm-5 pt-2">
-                        
+
 
                         <div class="py-2 h5 text-center" id="textthanks"><b>Thank's for your participation Today!
                                 Stay Healthy!</b>
                         </div>
                     </div>
-                    
+
 
                 </div>
-                <center><a href="/dashboard/details" class="ml-auto mr-auto btn btn-primary" style="margin-top: -30px;">Lihat Details</a></center>
+                <center><a href="/dashboard/details" class="ml-auto mr-auto btn btn-primary"
+                        style="margin-top: -30px;">Lihat Details</a></center>
             </div>
         </div>
     </div>

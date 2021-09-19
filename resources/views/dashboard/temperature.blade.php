@@ -3,7 +3,7 @@
 
 <!-- isi bagian judul halaman -->
 <!-- cara penulisan isi section yang pendek -->
-@section('judul_halaman', 'Report Temperature Check')
+@section('judul_halaman', 'Report Temperature Data')
 
 
 <!-- isi bagian konten -->
@@ -15,7 +15,7 @@
 
 <div class="mt-4 mb-20" style="height: auto;">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <p><i>{{$title}}</i></p>
+        <p><i><u>{{$title}}</u></i></p>
 
         <form method="get" action="{{route('temperature.periode')}}">
             <div class="form-row">
@@ -30,15 +30,18 @@
                         value="{{date('Y-m-d')}}">
                 </div>
                 <div class="form-group col-md-3" style="margin-top:31px;">
-                    <button class="btn btn-info" type="submit" style="height: 38px;">Filter</button>&nbsp;
-                    <a href="{{route('temperature.view')}}" class="btn btn-danger fa fa-refresh" type="submit"
-                        style="height: 38px;"><i aria-hidden="true">Get All Data</i></a>
+                    <button class="btn btn-info" type="submit" style="height: 38px;"><i class="fa fa-filter"
+                            aria-hidden="true"></i>
+                        Filter</button>&nbsp;
+                    <a href="{{route('temperature.view')}}" class="btn btn-warning " type="submit"><i
+                            aria-hidden="true"><i class="fa fa-refresh" aria-hidden="true"></i> Get All Data</i></a>
                 </div>
-                <div class="form-group col-md-4 ml-auto" style="margin-top:31px;">
+                <div class="form-group col-md-5 ml-auto" style="margin-top:31px;">
                     <a href="{{route('temperature.cetak')}}" target="_blank" class="btn btn-outline-dark" type="submit"
-                        style="height: 38px;">Print All Report Data</a>&nbsp;
+                        style="height: 38px;"><i class="fa fa-print" aria-hidden="true"></i> Print Seluruh
+                        Data</a>&nbsp;
                     <a href="{{route('temperature.cetak.pertanggal.form')}}" class="btn btn-outline-dark" type="submit"
-                        style="height: 38px;">Print Data Per Date</a>
+                        style="height: 38px;"><i class="fa fa-print" aria-hidden="true"></i> Print Data Per Tanggal</a>
                 </div>
             </div>
 
@@ -51,11 +54,12 @@
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
-                            <tr class="text-center">
+                            <tr class="text-center" style="color: #6FA74C ;">
                                 <th scope="col" style="width: 10%;">#</th>
                                 <th scope="col" style="width: 10%;">Tanggal</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col" style="width: 10%;">Suhu</th>
+                                <th class="text-light" scope="col" style="width: 10%; background-color:#6FA74C;">Suhu
+                                </th>
                                 <th scope="col" style="width: 10%;">Aksi</th>
                             </tr>
                         </thead>
@@ -65,11 +69,10 @@
                                 <th scope="row">{{ $temperature->firstItem() + $key}}</th>
                                 <td>{{date('d F Y H:i:s', strtotime($temp->created_at))}}</td>
                                 <td>{{$temp->clientname}}</td>
-                                <td>{{$temp->suhu}} &#8451;</td>
+                                <td class="text-light" style="background-color:#6FA74C;"">{{$temp->suhu}} &#8451;</td>
                                 <td>
                                     <a href="/dashboard/temperature/{{$temp->id}}/delete" type="button"
-                                        class="btn btn-danger"
-                                        onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
+                                    class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
