@@ -22,10 +22,9 @@
     <link rel="stylesheet" href="/style/navbar.css" type="text/css">
     <link rel="stylesheet" href="/style/button.css" type="text/css">
     <link rel="stylesheet" href="/style/footer.css" type="text/css">
-
+    <link rel="stylesheet" href="/style/loader.css" type="text/css">
 
     <!-- Scripts -->
-
     <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -33,6 +32,9 @@
 
 <body>
 
+    <div class="loader_bg">
+        <div class="loader"></div>
+    </div>
 
     <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
         <div class="container-fluid">
@@ -171,8 +173,8 @@
         </div>
         <!-- Copyright -->
     </footer>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/popper.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript" src="/style/date.js"></script>
@@ -191,6 +193,11 @@
             format: 'yyyy-mm-dd',
         });
 
+    </script>
+    <script>
+        setTimeout(function () {
+            $('.loader_bg').fadeToggle();
+        }, 1500);
     </script>
 </body>
 
