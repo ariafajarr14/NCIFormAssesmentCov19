@@ -29,7 +29,7 @@
                 class="img-fluid" src="image/logo.png" alt="" style="width: 400px;"></div>
         <div class="rightarea text-center col-sm-5" style="background-color:#FFFFFF;">
 
-            <h2 class="mt-5 col-sm-10 ml-auto mr-auto">Self Assesment Resiko Covid 19 (NCI)</h2>
+            <h2 class="mt-5 col-sm-10 ml-auto mr-auto">Aplikasi Pengelolaan Self Assesment Resiko Covid 19 dan Pengukuran Suhu</h2>
             <h5 class="mt-5">Tanggal : <span id="tanggal"></span></h5>
             <br>
             <form method="POST" action="{{route('post.register')}}" class="text-center mt-0 col-sm-8 ml-auto mr-auto"
