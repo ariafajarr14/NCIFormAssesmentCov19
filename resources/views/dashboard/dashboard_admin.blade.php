@@ -13,7 +13,60 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="bg-white border-b border-gray-200">
+                <div id="chart-container" class="col-sm-9 ml-auto mr-auto"></div><br><br>
                 <div class="container mt-3s text-center">
+
+                    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+                    <script>
+                        var datas = <?php echo json_encode($datas) ?>
+
+                            Highcharts.chart('chart-container', {
+                                title: {
+                                    text: 'Rata-rata Suhu Karyawan Tahun 2021'
+                                },
+                                subtitle: {
+                                    text: 'Source: PT. Nuansa Cerah Informasi'
+                                },
+                                xAxis: {
+                                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep',
+                                        'Okt', 'Nov', 'Des'
+                                    ]
+                                },
+                                yAxis: {
+                                    title: {
+                                        text: 'Suhu'
+                                    }
+                                },
+                                legend: {
+                                    layout: 'vertical',
+                                    align: 'right',
+                                    verticalAlign: 'middle'
+                                },
+                                plotOptions: {
+                                    series: {
+                                        allowPointSelect: true
+                                    }
+                                },
+                                series: [{
+                                    name: 'Rata-rata',
+                                    data: datas
+                                }],
+                                responsive: {
+                                    rules: [{
+                                        condition: {
+                                            maxWidth: 500
+                                        },
+                                        chartOptions: {
+                                            legend: {
+                                                layout: 'horizontal',
+                                                align: 'center',
+                                                verticalAlign: 'bottom'
+                                            }
+                                        }
+                                    }]
+                                }
+                            })
+                    </script>
                     <div class="card-deck">
                         <div class="card ">
                             <img class="card-img-top img-fluid ml-auto mr-auto mt-1" src="/image/formicon.png"

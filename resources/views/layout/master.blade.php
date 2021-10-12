@@ -179,6 +179,7 @@
     <script type="text/javascript" src="/js/main.js"></script>
     <script type="text/javascript" src="/style/date.js"></script>
     <script type="text/javascript" src="/style/navbar.js"></script>
+    
 
     <script>
         $('#datepicker').datepicker({

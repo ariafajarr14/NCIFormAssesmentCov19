@@ -35,8 +35,10 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     Route::get('/dashboard/userlist', 'App\Http\Controllers\AuthController@userlist')->name('admin.userlist');
     
     //Dashboard
-    Route::get('/dashboard/home', 'App\Http\Controllers\DashboardController@index')->name('user.home');
+    
     Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');
+    //Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');
+    //Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\ChartController@index')->name('admin.chart');
     
     //Form
     Route::get('/dashboard/formhistory', 'App\Http\Controllers\FormController@index')->name('form.view');
@@ -56,6 +58,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     Route::get('/dashboard/temperature/cetak_temperature_pertanggal_form_backhome', 'App\Http\Controllers\TemperatureController@cetakTemperaturePertanggalFormBackhome')->name('temperature.cetak.pertanggal.form.backhome');
     Route::get('/dashboard/temperature/cetak_temperature_pertanggal/{tanggal_awal}/{tanggal_akhir}', 'App\Http\Controllers\TemperatureController@cetakTemperaturePertanggal')->name('temperature.cetak.pertanggal');
 
+    
 
 });
 
