@@ -321,7 +321,7 @@
                                 <td class="text-light" style="background-color:#6FA74C;">
                                     <strong>{{$form->keterangan}}</strong></td>
                                 <td>
-                                    <a href="/dashboard/dashboard_admin/formhistory/{{$form->id}}/delete" type="button"
+                                    <a href="/dashboard/formhistory/{{$form->id}}/delete" type="button"
                                         class="btn btn-danger" onclick="return confirm('Yakin mau dihapus ?')"><i
                                             class="fa fa-trash" aria-hidden="true"></i>
                                         Delete</a>

@@ -129,8 +129,8 @@
                                             <form method="POST" action="{{route('temperature.create')}}">
                                                 @csrf
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="inputSuhu" name="suhu"
-                                                        placeholder="Masukan Suhu Tubuh" required>
+                                                    <input type="number" step="00.01" min="36.01" class="form-control" id="inputSuhu" name="suhu"
+                                                        placeholder="36.01" required>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-success"

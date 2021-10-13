@@ -32,12 +32,12 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 2,
-            'nik_id' => 3273161412990003,
+            'nik_id' => 321321321321,
             'role' => 'employee',
-            'name' => 'Aria Fajar Ramdhany',
+            'name' => 'Test User',
             'divisi' => 'Divisi Marketing',
             'jenis_kelamin' => 'Laki-laki',
-            'password' => bcrypt(3273161412990003),
+            'password' => bcrypt(321321321321),
             'remember_token' => Str::random(60)
             ]);
     }
