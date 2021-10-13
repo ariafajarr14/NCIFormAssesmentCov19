@@ -130,7 +130,7 @@
                                                 @csrf
                                                 <div class="form-group">
                                                     <input type="number" step="00.01" min="36.01" class="form-control" id="inputSuhu" name="suhu"
-                                                        placeholder="36.01" required>
+                                                        placeholder="36,01" required>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-success"
