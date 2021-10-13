@@ -37,7 +37,6 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     //Dashboard
     
     Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');
-    //Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');
     //Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\ChartController@index')->name('admin.chart');
     
     //Form

@@ -36,6 +36,8 @@ class DashboardController extends Controller
         return view('dashboard.temperature');
     }
 
+    
+
     public function dashboard_admin()
     {
         //
