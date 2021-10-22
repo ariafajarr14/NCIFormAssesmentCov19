@@ -121,6 +121,31 @@ class AuthController extends Controller
         return redirect('/dashboard/home')->with('userdibuat', 'Selamat Anda Sudah Terdaftar');
     }
 
+    public function postregisteruserlist(Request $request)
+    {
+        //
+        $this->validate($request, [
+            'name' => 'required|min:5',
+            'nik_id' => 'required|min:10|unique:users',
+            //'password' => 'required|min:6|confirmed' //field_confirmatin
+        ]);
+
+        $request = new \App\Models\User();
+        $request -> nik_id = request('nik_id');
+        $request -> role = 'employee';
+        $request -> name = request('name');
+        $request -> divisi = request('divisi');
+        $request -> jenis_kelamin = request('jenis_kelamin');
+        $request -> password = bcrypt(request('password'));
+        $request -> remember_token = Str::random(60);
+
+        if ($request->save()) {
+            return redirect()->back()->with('userdibuatuserlist','Berhasil Menambahkan User'); 
+       } else {
+            return redirect()->back()->with('userdibuatuserlisterror','Gagal Menambahkan User');
+       }
+    }
+
     public function profileindex()
     {
         //
@@ -141,6 +166,25 @@ class AuthController extends Controller
         $user = User::all()->where('id', $userId);
         return redirect()->back()->with('updateprofile', 'User Profile berhasil diubah!');
     
+    }
+
+    public function updatepassword(Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'required|min:6|confirmed' //field_confirmatin
+        ]);
+
+        $password = request('password');
+        $password_confirmation = request('password_confirmation');
+        
+        if($password == $password_confirmation){
+        $userId = Auth::id();
+        $request = User::all()->where('id', $userId)->first();
+        $request -> password = bcrypt(request('password'));
+        $request -> save(); 
+        }
+    
+        return redirect()->back()->with('updateprofile', 'Password berhasil diubah!');
     }
 
     public function logout()

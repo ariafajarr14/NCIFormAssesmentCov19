@@ -28,12 +28,14 @@ Route::post('/register', 'App\Http\Controllers\AuthController@postregister')->na
 
 Route::get('/dashboard/profile', 'App\Http\Controllers\AuthController@profileindex')->name('user.profile');
 Route::post('/dashboard/updateprofile', 'App\Http\Controllers\AuthController@updateprofile');
+Route::post('/dashboard/updatepassword', 'App\Http\Controllers\AuthController@updatepassword');
 
 Route::group(['middleware' => ['auth','checkRole:admin']], function(){
     //User
     Route::get('/dashboard/userlist/{id}/delete', 'App\Http\Controllers\AuthController@destroy')->name('userlist.delete');
     Route::get('/dashboard/userlist', 'App\Http\Controllers\AuthController@userlist')->name('admin.userlist');
-    
+    Route::post('/dashboard/userlist', 'App\Http\Controllers\AuthController@postregisteruserlist')->name('post.registeruserlist');
+
     //Dashboard
     
     Route::get('/dashboard/dashboard_admin', 'App\Http\Controllers\DashboardController@dashboard_admin')->name('admin.dashboard');

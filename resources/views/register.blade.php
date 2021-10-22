@@ -29,7 +29,8 @@
                 class="img-fluid" src="image/logo.png" alt="" style="width: 400px;"></div>
         <div class="rightarea text-center col-sm-5" style="background-color:#FFFFFF;">
 
-            <h2 class="mt-5 col-sm-10 ml-auto mr-auto">Aplikasi Pengelolaan Self Assesment Resiko Covid 19 dan Pengukuran Suhu</h2>
+            <h2 class="mt-5 col-sm-10 ml-auto mr-auto">Aplikasi Pengelolaan Self Assesment Resiko Covid 19 dan
+                Pengukuran Suhu</h2>
             <h5 class="mt-5">Tanggal : <span id="tanggal"></span></h5>
             <br>
             <form method="POST" action="{{route('post.register')}}" class="text-center mt-0 col-sm-8 ml-auto mr-auto"
@@ -50,9 +51,11 @@
                 <div class="form-group mt-3">
                     <select id="inputState" class="form-control" name="divisi">
                         <option selected>Pilih Divisi</option>
-                        <option value="Divisi Marketing">Divisi Marketing</option>
-                        <option value="Divisi HR">Divisi HR</option>
-                        <option value="Divisi PR">Divisi PR</option>
+                        <option value="Produk RS & BO">Produk RS & BO</option>
+                        <option value="Non RS">Non RS</option>
+                        <option value="Keuangan">Keuangan</option>
+                        <option value="HRD & Umum">HRD & Umum</option>
+                        <option value="Manajemen">Manajemen</option>
                     </select>
                 </div>
 
@@ -65,9 +68,9 @@
                     </select>
                 </div>
 
-                <!-- Email -->
+                <!-- NIK -->
                 <div class="form-group mt-3">
-                    <input id="nik_id" type="text" name="nik_id"
+                    <input id="nik_id" type="number" name="nik_id"
                         class="form-control {{ $errors->has('nik_id') ? 'is-invalid' : '' }}" :value="old('nik_id')"
                         placeholder="Masukkan NIK" required>
                     @if ($errors->has('nik_id'))
@@ -89,7 +92,7 @@
                     @endif
                 </div>
 
-                <!-- Password -->
+                <!-- Confirmation Password -->
                 <div class="form-group">
                     <input id="password_confirmation" type="hidden" name="password_confirmation"
                         class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" required
@@ -114,7 +117,6 @@
         setTimeout(function () {
             $('.loader_bg').fadeToggle();
         }, 1500);
-
     </script>
 </body>
 

@@ -51,15 +51,17 @@
                                 <label for="divisi" class="col-sm-4 col-form-label">Divisi</label>
                                 <div class="col-sm-8">
                                     <select id="divisi" class="form-control" name="divisi">
-                                        <option value="Divisi Marketing" @if($user->divisi == 'Divisi Marketing')
+                                        <option value="Produk RS & BO" @if($user->divisi == 'Produk RS & BO')
                                             selected
-                                            @endif> Divisi Marketing</option>
-                                        <option value="Divisi HR" @if($user->divisi == 'Divisi HR') selected
-                                            @endif>Divisi
-                                            HR</option>
-                                        <option value="Divisi PR" @if($user->divisi == 'Divisi PR') selected
-                                            @endif>Divisi
-                                            PR</option>
+                                            @endif> Produk RS & BO</option>
+                                        <option value="Non RS" @if($user->divisi == 'Non RS') selected
+                                            @endif>Non RS</option>
+                                        <option value="Keuangan" @if($user->divisi == 'Keuangan') selected
+                                            @endif>Keuangan</option>
+                                        <option value="HRD & Umum" @if($user->divisi == 'HRD & Umum') selected
+                                            @endif>HRD & Umum</option>
+                                        <option value="Manajemen" @if($user->divisi == 'Manajemen') selected
+                                            @endif>Manajemen</option>
                                     </select>
                                 </div>
                             </div>
@@ -82,6 +84,51 @@
                     </div>
                     @endforeach
                 </div>
+                <hr>
+
+
+                <div class="container">
+                    <h4 class="text-center"><strong>Ubah Password</strong></h4>
+                    <div class="data mt-4">
+                        <form action="updatepassword" method="POST">
+                            @csrf
+                            <!-- Password -->
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-4 col-form-label">Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password"
+                                        class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                                        id="password" name="password" placeholder="Masukkan Password Baru" required>
+                                    @if ($errors->has('password'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('password')}}
+                                    </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <!-- Konfirmasi Password -->
+                            <div class="form-group row">
+                                <label for="password" class="col-sm-4 col-form-label">Konfirmasi Password</label>
+                                <div class="col-sm-8">
+                                    <input type="password"
+                                        class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}"
+                                        id="password_confirmation" name="password_confirmation"
+                                        placeholder="Masukkan Ulang Password Baru" required>
+                                    @if ($errors->has('password_confirmation'))
+                                    <div class="invalid-feedback">
+                                        {{ $errors->first('password_confirmation')}}
+                                    </div>
+                                    @endif
+                                </div>
+                            </div>
+                            <center><button type="submit" class="btn btn-success mt-1 mb-2"><i
+                                        class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    Update</button></center>
+                        </form>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>

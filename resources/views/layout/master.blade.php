@@ -65,6 +65,12 @@
                         <a class="nav-link" href="{{route('admin.dashboard')}}">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('form.view')}}">Report Assesment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('temperature.view')}}">Report Temperature</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{route('admin.userlist')}}">User List</a>
                     </li>
                     @endif
@@ -101,6 +107,18 @@
         </div>
     </header>
 
+    
+    @if(session('userdibuatuserlist'))
+    <div class="alert alert-success" role="alert">
+        {{session('userdibuatuserlist')}}
+    </div>
+    @endif
+
+    @if(session('userdibuatuserlisterror'))
+    <div class="alert alert-danger" role="alert">
+        {{session('userdibuatuserlisterror')}}
+    </div>
+    @endif
 
     @if(session('suhutinggi'))
     <div class="alert alert-danger" role="alert">
